@@ -1,0 +1,9 @@
+h3 {
+    margin: 0;
+}
+.collection.with-header {
+    border: none;
+}
+.collection .collection-item {
+    padding-left: 20px !important;
+}
