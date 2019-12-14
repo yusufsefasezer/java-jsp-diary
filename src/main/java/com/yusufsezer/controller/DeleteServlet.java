@@ -19,9 +19,8 @@ public class DeleteServlet extends HttpServlet {
 
         if (foundDiary != null) {
             Helper.diaryRepository().remove(diaryId);
-        } else {
-            response.sendRedirect("mydiaries");
-        }
-
+        } 
+        
+        response.sendRedirect("mydiaries");
     }
 }
