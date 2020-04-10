@@ -23,11 +23,12 @@ public class UserRepository implements IRepository<User, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                user = new User(resultSet.getInt("user_id"),
-                        resultSet.getString("first_name"),
-                        resultSet.getString("last_name"),
-                        resultSet.getString("email"),
-                        resultSet.getString("password"));
+                user = new User();
+                user.setId(resultSet.getInt("user_id"));
+                user.setFirstName(resultSet.getString("first_name"));
+                user.setLastName(resultSet.getString("last_name"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
             }
         } catch (Exception e) {
             return user;
@@ -43,11 +44,12 @@ public class UserRepository implements IRepository<User, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                User user = new User(resultSet.getInt("user_id"),
-                        resultSet.getString("first_name"),
-                        resultSet.getString("last_name"),
-                        resultSet.getString("email"),
-                        resultSet.getString("password"));
+                User user = new User();
+                user.setId(resultSet.getInt("user_id"));
+                user.setFirstName(resultSet.getString("first_name"));
+                user.setLastName(resultSet.getString("last_name"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
                 list.add(user);
             }
         } catch (Exception ex) {
@@ -120,11 +122,12 @@ public class UserRepository implements IRepository<User, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                user = new User(resultSet.getInt("user_id"),
-                        resultSet.getString("first_name"),
-                        resultSet.getString("last_name"),
-                        resultSet.getString("email"),
-                        resultSet.getString("password"));
+                user = new User();
+                user.setId(resultSet.getInt("user_id"));
+                user.setFirstName(resultSet.getString("first_name"));
+                user.setLastName(resultSet.getString("last_name"));
+                user.setEmail(resultSet.getString("email"));
+                user.setPassword(resultSet.getString("password"));
             }
         } catch (Exception e) {
             return user;

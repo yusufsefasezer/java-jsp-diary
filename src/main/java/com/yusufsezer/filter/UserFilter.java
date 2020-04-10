@@ -17,17 +17,18 @@ import javax.servlet.http.HttpServletResponse;
 
 public class UserFilter implements Filter {
 
-    private static final boolean debug = true;
+    private static final boolean DEGUG = true;
     private FilterConfig filterConfig = null;
 
     public UserFilter() {
     }
 
+    @Override
     public void doFilter(ServletRequest request, ServletResponse response,
             FilterChain chain)
             throws IOException, ServletException {
 
-        if (debug) {
+        if (DEGUG) {
             log("UserFilter:doFilter()");
         }
 
@@ -44,16 +45,10 @@ public class UserFilter implements Filter {
             }
 
             chain.doFilter(request, response);
-        } catch (Throwable t) {
-            // If an exception is thrown somewhere down the filter chain,
-            // we still want to execute our after processing, and then
-            // rethrow the problem after that.
+        } catch (IOException | ServletException t) {
             problem = t;
-            t.printStackTrace();
         }
 
-        // If there was a problem, we want to rethrow it if it is
-        // a known type, otherwise log it.
         if (problem != null) {
             if (problem instanceof ServletException) {
                 throw (ServletException) problem;
@@ -73,13 +68,15 @@ public class UserFilter implements Filter {
         this.filterConfig = filterConfig;
     }
 
+    @Override
     public void destroy() {
     }
 
+    @Override
     public void init(FilterConfig filterConfig) {
         this.filterConfig = filterConfig;
         if (filterConfig != null) {
-            if (debug) {
+            if (DEGUG) {
                 log("UserFilter:Initializing filter");
             }
         }
@@ -90,7 +87,7 @@ public class UserFilter implements Filter {
         if (filterConfig == null) {
             return ("UserFilter()");
         }
-        StringBuffer sb = new StringBuffer("UserFilter(");
+        StringBuilder sb = new StringBuilder("UserFilter(");
         sb.append(filterConfig);
         sb.append(")");
         return (sb.toString());
@@ -102,26 +99,26 @@ public class UserFilter implements Filter {
         if (stackTrace != null && !stackTrace.equals("")) {
             try {
                 response.setContentType("text/html");
-                PrintStream ps = new PrintStream(response.getOutputStream());
-                PrintWriter pw = new PrintWriter(ps);
-                pw.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
+                try (PrintStream ps = new PrintStream(response.getOutputStream())) {
+                    PrintWriter pw = new PrintWriter(ps);
+                    pw.print("<html>\n<head>\n<title>Error</title>\n</head>\n<body>\n"); //NOI18N
 
-                // PENDING! Localize this for next official release
-                pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");
-                pw.print(stackTrace);
-                pw.print("</pre></body>\n</html>"); //NOI18N
-                pw.close();
-                ps.close();
+                    // PENDING! Localize this for next official release
+                    pw.print("<h1>The resource did not process correctly</h1>\n<pre>\n");
+                    pw.print(stackTrace);
+                    pw.print("</pre></body>\n</html>"); //NOI18N
+                    pw.close();
+                }
                 response.getOutputStream().close();
-            } catch (Exception ex) {
+            } catch (IOException ex) {
             }
         } else {
             try {
-                PrintStream ps = new PrintStream(response.getOutputStream());
-                t.printStackTrace(ps);
-                ps.close();
+                try (PrintStream ps = new PrintStream(response.getOutputStream())) {
+                    t.printStackTrace(ps);
+                }
                 response.getOutputStream().close();
-            } catch (Exception ex) {
+            } catch (IOException ex) {
             }
         }
     }
@@ -135,7 +132,7 @@ public class UserFilter implements Filter {
             pw.close();
             sw.close();
             stackTrace = sw.getBuffer().toString();
-        } catch (Exception ex) {
+        } catch (IOException ex) {
         }
         return stackTrace;
     }

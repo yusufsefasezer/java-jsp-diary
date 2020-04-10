@@ -19,7 +19,7 @@ public class Helper {
 
     public static String VIEW_FOLDER = "WEB-INF/view";
     public static String NOT_FOUND = "notfound.jsp";
-    public static String DB_SOURCE = "jdbc:mysql://localhost:3306/jspDiary?useSSL=false&serverTimezone=UTC&user=root&password=123456&charset=UTF-8";
+    public static String DB_SOURCE = "jdbc:mysql://localhost:3306/jspDiary?useSSL=false&serverTimezone=UTC&user=root&password=&charset=UTF-8";
     private static IDatabase DATABASE = null;
 
     public static void view(HttpServletRequest request, HttpServletResponse response)
@@ -65,7 +65,7 @@ public class Helper {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] array = md.digest(text.getBytes());
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < array.length; ++i) {
                 sb.append(Integer.toHexString((array[i] & 0xFF) | 0x100).substring(1, 3));
             }
@@ -75,7 +75,7 @@ public class Helper {
         }
     }
 
-        public static User getLoginUser(HttpServletRequest request) {
+    public static User getLoginUser(HttpServletRequest request) {
         HttpSession session = request.getSession();
         Object userAttribute = session.getAttribute("user");
         return userAttribute == null ? null : (User) userAttribute;

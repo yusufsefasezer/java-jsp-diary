@@ -24,11 +24,12 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                diary = new Diary(resultSet.getInt("diary_id"),
-                        resultSet.getInt("user_id"),
-                        resultSet.getDate("date_of_diary"),
-                        resultSet.getString("content"),
-                        resultSet.getBoolean("visibility"));
+                diary = new Diary();
+                diary.setId(resultSet.getInt("diary_id"));
+                diary.setUserId(resultSet.getInt("user_id"));
+                diary.setDateOfDiary(resultSet.getDate("date_of_diary"));
+                diary.setContent(resultSet.getString("content"));
+                diary.setVisibility(resultSet.getBoolean("visibility"));
             }
         } catch (Exception e) {
             return diary;
@@ -45,11 +46,12 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                Diary diary = new Diary(resultSet.getInt("diary_id"),
-                        resultSet.getInt("user_id"),
-                        resultSet.getDate("date_of_diary"),
-                        resultSet.getString("content"),
-                        resultSet.getBoolean("visibility"));
+                Diary diary = new Diary();
+                diary.setId(resultSet.getInt("diary_id"));
+                diary.setUserId(resultSet.getInt("user_id"));
+                diary.setDateOfDiary(resultSet.getDate("date_of_diary"));
+                diary.setContent(resultSet.getString("content"));
+                diary.setVisibility(resultSet.getBoolean("visibility"));
                 list.add(diary);
             }
         } catch (Exception ex) {
@@ -67,11 +69,12 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                Diary diary = new Diary(resultSet.getInt("diary_id"),
-                        resultSet.getInt("user_id"),
-                        resultSet.getDate("date_of_diary"),
-                        resultSet.getString("content"),
-                        resultSet.getBoolean("visibility"));
+                Diary diary = new Diary();
+                diary.setId(resultSet.getInt("diary_id"));
+                diary.setUserId(resultSet.getInt("user_id"));
+                diary.setDateOfDiary(resultSet.getDate("date_of_diary"));
+                diary.setContent(resultSet.getString("content"));
+                diary.setVisibility(resultSet.getBoolean("visibility"));
                 list.add(diary);
             }
         } catch (Exception ex) {

@@ -15,18 +15,6 @@ public class Diary implements Serializable {
     public Diary() {
     }
 
-    public Diary(int id,
-            int userId,
-            Date dateOfDiary,
-            String content,
-            boolean visibility) {
-        this.id = id;
-        this.userId = userId;
-        this.dateOfDiary = dateOfDiary;
-        this.content = content;
-        this.visibility = visibility;
-    }
-
     public int getId() {
         return id;
     }
