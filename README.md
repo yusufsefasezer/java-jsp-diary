@@ -5,6 +5,16 @@ This project developed with Java EE Servlet, JSP, Maven, MySQL.
 
 ## [Download](https://github.com/yusufsefasezer/java-jsp-diary/archive/master.zip)
 
+## Run
+
+You can run this app below command with Tomcat without Tomcat installation.
+
+``
+mvn tomcat7:run
+``
+
+**NOTE:** You have to make sure that Maven is installed.
+
 ## Screenshot
 
 - [Register](screenshot/register.png)
