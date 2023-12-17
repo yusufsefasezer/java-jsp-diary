@@ -24,6 +24,7 @@ public class Helper {
 
     public static void view(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+    	String p = "comer";
         String viewFile = getViewFile(request);
         request
                 .getRequestDispatcher(Helper.VIEW_FOLDER + File.separator + viewFile)
