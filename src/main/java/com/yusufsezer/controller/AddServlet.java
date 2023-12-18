@@ -43,16 +43,19 @@ public class AddServlet extends HttpServlet {
         newDiary.setVisibility(visible);
 
         boolean addResult = Helper.diaryRepository().add(newDiary);
-        if (!addResult) {
-            request.setAttribute("viewFile", "add.jsp");
-            DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            request.setAttribute("pageTitle", "Add new diary / "
-                    + sdf.format(new Date()));
-            request.setAttribute("message", "Something went wrong");
-            Helper.view(request, response);
-        } else {
-            response.sendRedirect("mydiaries");
+        try {
+            if (!addResult) {
+                request.setAttribute("viewFile", "add.jsp");
+                DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                request.setAttribute("pageTitle", "Add new diary / " + sdf.format(new Date()));
+                request.setAttribute("message", "Something went wrong");
+                Helper.view(request, response);
+            } else {
+                response.sendRedirect("mydiaries");
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // o maneja la excepción de alguna otra manera
         }
-
+        
     }
 }
