@@ -10,6 +10,12 @@ import java.util.List;
 public class UserRepository implements IRepository<User, Integer> {
 
     private final IDatabase database;
+    String password = "password";
+    String userID ="user_id";
+    String firstName ="first_name";
+    String lastName ="last_name";
+    String email ="email";
+
 
     public UserRepository(IDatabase database) {
         this.database = database;
@@ -24,11 +30,11 @@ public class UserRepository implements IRepository<User, Integer> {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 user = new User();
-                user.setId(resultSet.getInt("user_id"));
-                user.setFirstName(resultSet.getString("first_name"));
-                user.setLastName(resultSet.getString("last_name"));
-                user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
+                user.setId(resultSet.getInt(userID));
+                user.setFirstName(resultSet.getString(firstName));
+                user.setLastName(resultSet.getString(lastName));
+                user.setEmail(resultSet.getString(email));
+                user.setPassword(resultSet.getString(password ));
             }
         } catch (Exception e) {
             return user;
@@ -45,11 +51,11 @@ public class UserRepository implements IRepository<User, Integer> {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 User user = new User();
-                user.setId(resultSet.getInt("user_id"));
-                user.setFirstName(resultSet.getString("first_name"));
-                user.setLastName(resultSet.getString("last_name"));
+                user.setId(resultSet.getInt(userID));
+                user.setFirstName(resultSet.getString(firstName));
+                user.setLastName(resultSet.getString(lastName));
                 user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
+                user.setPassword(resultSet.getString(password ));
                 list.add(user);
             }
         } catch (Exception ex) {
@@ -123,11 +129,11 @@ public class UserRepository implements IRepository<User, Integer> {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 user = new User();
-                user.setId(resultSet.getInt("user_id"));
-                user.setFirstName(resultSet.getString("first_name"));
-                user.setLastName(resultSet.getString("last_name"));
-                user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
+                user.setId(resultSet.getInt(userID));
+                user.setFirstName(resultSet.getString(firstName));
+                user.setLastName(resultSet.getString(lastName));
+                user.setEmail(resultSet.getString(email));
+                user.setPassword(resultSet.getString(password));
             }
         } catch (Exception e) {
             return user;
