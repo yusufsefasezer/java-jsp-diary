@@ -18,7 +18,7 @@ public class AddServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         request.setAttribute("viewFile", "add.jsp");
-        DateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         request.setAttribute("pageTitle", "Add new diary / "
                 + sdf.format(new Date()));
         Helper.view(request, response);
@@ -41,7 +41,7 @@ public class AddServlet extends HttpServlet {
         boolean addResult = Helper.diaryRepository().add(newDiary);
         if (!addResult) {
             request.setAttribute("viewFile", "add.jsp");
-            DateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+            DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             request.setAttribute("pageTitle", "Add new diary / "
                     + sdf.format(new Date()));
             request.setAttribute("message", "Something went wrong");
