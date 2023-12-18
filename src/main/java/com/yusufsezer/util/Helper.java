@@ -6,21 +6,26 @@ import com.yusufsezer.repository.DiaryRepository;
 import com.yusufsezer.repository.MySQL;
 import com.yusufsezer.repository.UserRepository;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
+import java.util.Properties;
+import java.io.InputStream;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class Helper {
+	
+	private Helper() {}
 
-    public static String VIEW_FOLDER = "WEB-INF/view";
-    public static String NOT_FOUND = "notfound.jsp";
-    public static String DB_SOURCE = "jdbc:mysql://localhost:3306/jspDiary?useSSL=false&serverTimezone=UTC&user=root&password=matafurros90000";
-    private static IDatabase DATABASE = null;
+	public static final String VIEW_FOLDER = "WEB-INF/view";
+	public static final String NOT_FOUND = "notfound.jsp";
+	private static IDatabase dataBase = null;
 
     public static void view(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -37,18 +42,35 @@ public class Helper {
                 : viewFileAttribute.toString();
     }
 
-    private static IDatabase getMySQLDatabase() {
-        if (Helper.DATABASE == null) {
-            Helper.DATABASE = new MySQL(Helper.DB_SOURCE);
-        }
-        return Helper.DATABASE;
+    public static String getUrlDatabase() throws FileNotFoundException {
+    	Properties prop = new Properties();
+    	String url = null;
+    	try (InputStream input = new FileInputStream("C:\\Users\\USUARIO\\git\\java-jsp-diary\\config.properties")) { 		
+    	    prop.load(input);
+    	    String dbUrl = prop.getProperty("db.url");
+    	    String user = prop.getProperty("db.user");
+    	    String password = prop.getProperty("db.password");
+    	    url = String.format("%s&user=%s&password=%s",dbUrl, user, password);
+           
+    	} catch (IOException e) {
+    	    e.printStackTrace();
+    	}
+    	
+    	return url;
     }
 
-    public static UserRepository userRepository() {
+    private static IDatabase getMySQLDatabase() throws FileNotFoundException {
+        if (Helper.dataBase == null) {
+            Helper.dataBase = new MySQL(Helper.getUrlDatabase());
+        }
+        return Helper.dataBase;
+    }
+
+    public static UserRepository userRepository() throws FileNotFoundException{
         return new UserRepository(Helper.getMySQLDatabase());
     }
 
-    public static DiaryRepository diaryRepository() {
+    public static DiaryRepository diaryRepository() throws FileNotFoundException{
         return new DiaryRepository(Helper.getMySQLDatabase());
     }
 

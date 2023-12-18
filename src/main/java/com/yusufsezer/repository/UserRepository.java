@@ -10,7 +10,12 @@ import java.util.List;
 public class UserRepository implements IRepository<User, Integer> {
 
     private final IDatabase database;
-
+    public static final String USER_ID_COLUMN = "user_id";
+    public static final String FIRST_NAME_COLUMN = "first_name";
+    public static final String LAST_NAME_COLUMN = "last_name";
+    public static final String EMAIL_COLUMN = "email";
+    public static final String PASSWORD_COLUMN = "password";
+    
     public UserRepository(IDatabase database) {
         this.database = database;
     }
@@ -19,16 +24,16 @@ public class UserRepository implements IRepository<User, Integer> {
     public User get(Integer index) {
         User user = null;
         String query = String
-                .format("SELECT * FROM user WHERE user_id = %d", index);
+                .format("SELECT * FROM user WHERE %s = %d", USER_ID_COLUMN, index);
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 user = new User();
-                user.setId(resultSet.getInt("user_id"));
-                user.setFirstName(resultSet.getString("first_name"));
-                user.setLastName(resultSet.getString("last_name"));
-                user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
+                user.setId(resultSet.getInt(USER_ID_COLUMN));
+                user.setFirstName(resultSet.getString(FIRST_NAME_COLUMN));
+                user.setLastName(resultSet.getString(LAST_NAME_COLUMN));
+                user.setEmail(resultSet.getString(EMAIL_COLUMN));
+                user.setPassword(resultSet.getString(PASSWORD_COLUMN));
             }
         } catch (Exception e) {
             return user;
@@ -39,17 +44,17 @@ public class UserRepository implements IRepository<User, Integer> {
     @Override
     public List<User> getAll() {
         List<User> list = new ArrayList<>();
-        String query = "SELECT * FROM user "
-                + "ORDER BY user_id ASC";
+        String query = String.format("SELECT * FROM user ORDER BY %s ASC", USER_ID_COLUMN);
+          
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 User user = new User();
-                user.setId(resultSet.getInt("user_id"));
-                user.setFirstName(resultSet.getString("first_name"));
-                user.setLastName(resultSet.getString("last_name"));
-                user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
+                user.setId(resultSet.getInt(USER_ID_COLUMN));
+                user.setFirstName(resultSet.getString(FIRST_NAME_COLUMN));
+                user.setLastName(resultSet.getString(LAST_NAME_COLUMN));
+                user.setEmail(resultSet.getString(EMAIL_COLUMN));
+                user.setPassword(resultSet.getString(PASSWORD_COLUMN));
                 list.add(user);
             }
         } catch (Exception ex) {
@@ -80,15 +85,20 @@ public class UserRepository implements IRepository<User, Integer> {
     public User update(Integer index, User user) {
         User updatedUser = get(index);
         String query = String.format("UPDATE user SET "
-                + "firstName = '%s', "
-                + "lastName = '%s', "
-                + "email = '%s', "
-                + "password = '%s' "
-                + "WHERE user_id = %d",
+                + "%s = '%s', "
+                + "%s = '%s', "
+                + "%s = '%s', "
+                + "%s = '%s' "
+                + "WHERE %s = %d",
+                FIRST_NAME_COLUMN,
                 user.getFirstName(),
+                LAST_NAME_COLUMN,
                 user.getLastName(),
+                EMAIL_COLUMN,
                 user.getEmail(),
+                PASSWORD_COLUMN,
                 user.getPassword(),
+                USER_ID_COLUMN,
                 index);
 
         try {
@@ -103,7 +113,7 @@ public class UserRepository implements IRepository<User, Integer> {
     @Override
     public User remove(Integer index) {
         String query = String
-                .format("DELETE FROM user WHERE user_id = %d", index);
+                .format("DELETE FROM user WHERE %s = %d",USER_ID_COLUMN, index);
         User deletedUser = get(index);
         try {
             database.executeSQL(query);
@@ -117,17 +127,17 @@ public class UserRepository implements IRepository<User, Integer> {
         User user = null;
         String query = String
                 .format("SELECT * FROM user "
-                        + "WHERE email = '%s' "
-                        + "AND password = md5('%s')", email, password);
+                        + "WHERE %s = '%s' "
+                        + "AND %s = md5('%s')", EMAIL_COLUMN, email, PASSWORD_COLUMN, password);
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 user = new User();
-                user.setId(resultSet.getInt("user_id"));
-                user.setFirstName(resultSet.getString("first_name"));
-                user.setLastName(resultSet.getString("last_name"));
-                user.setEmail(resultSet.getString("email"));
-                user.setPassword(resultSet.getString("password"));
+                user.setId(resultSet.getInt(USER_ID_COLUMN));
+                user.setFirstName(resultSet.getString(FIRST_NAME_COLUMN));
+                user.setLastName(resultSet.getString(LAST_NAME_COLUMN));
+                user.setEmail(resultSet.getString(EMAIL_COLUMN));
+                user.setPassword(resultSet.getString(PASSWORD_COLUMN));
             }
         } catch (Exception e) {
             return user;
