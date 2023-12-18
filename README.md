@@ -1,32 +1,20 @@
-# Java JSP Diary
-A simple MySQL diary application developed with Java EE JSP.
+MODIFICACIONES DEL SONARLINT:
+Clean code doesn’t contain duplication.:
+Despues de hacer un cambio para las excepciones
 
-This project developed with Java EE Servlet, JSP, Maven, MySQL.
+![image](https://github.com/Berly01/java-jsp-diary/assets/104178976/9e51adde-85cf-4e37-a7f3-42446d868d1b)
 
-## [Download](https://github.com/yusufsefasezer/java-jsp-diary/archive/master.zip)
 
-## Run
+Tenia que juntar ambos catch ,porque al inicio los tenia separados y eso contaba como
+duplicado
+Intentionality issue:
 
-You can run this app below command with Tomcat without Tomcat installation.
+![image](https://github.com/Berly01/java-jsp-diary/assets/104178976/9e4b77de-d6ac-44ba-920b-e96213efce68)
 
-``
-mvn tomcat7:run
-``
+![image](https://github.com/Berly01/java-jsp-diary/assets/104178976/7b446fda-da2d-4657-a906-fa70c97c1f29)
 
-**NOTE:** You have to make sure that Maven is installed.
+Hay que redifinir las variables
+![image](https://github.com/Berly01/java-jsp-diary/assets/104178976/4af43076-0447-49e0-9be6-50ecc21aec04)
 
-## Screenshot
 
-- [Register](screenshot/register.png)
-- [Login](screenshot/login.png)
-- [Add](screenshot/add.png)
-- [Diaries](screenshot/diaries.png)
-- [Edit](screenshot/edit.png)
-- [Detail](screenshot/detail.png)
-- [Profile](screenshot/profile.png)
-- [Home](screenshot/home.png)
 
-# License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details
-
-Created by [Yusuf SEZER](http://www.yusufsezer.com)
