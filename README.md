@@ -6,5 +6,5 @@
 
 ![image](https://github.com/Berly01/java-jsp-diary/assets/104087488/483dc154-6601-4dca-b9d3-a94edc5c6611)
 
-Mejora/corrección:
+## Mejora/corrección:
 ![image](https://github.com/Berly01/java-jsp-diary/assets/104087488/a8d5ce04-819a-44b7-87c1-119d4b3eb0ea)
