@@ -11,7 +11,11 @@ import java.util.List;
 public class DiaryRepository implements IRepository<Diary, Integer> {
 
     private final IDatabase database;
-
+    private static final String DIARY_ID = "diary_id";
+    private static final String USER_ID = "user_id";
+    private static final String DATE_OF_DIARY = "date_of_diary";
+    private static final String CONTENT = "content";
+    private static final String VISIBILITY = "visibility";
     public DiaryRepository(IDatabase database) {
         this.database = database;
     }
@@ -20,16 +24,16 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
     public Diary get(Integer index) {
         Diary diary = null;
         String query = String
-                .format("SELECT * FROM diary WHERE diary_id = %d", index);
+                .format("SELECT * FROM diary WHERE DIARY_ID = %d", index);
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 diary = new Diary();
-                diary.setId(resultSet.getInt("diary_id"));
-                diary.setUserId(resultSet.getInt("user_id"));
-                diary.setDateOfDiary(resultSet.getDate("date_of_diary"));
-                diary.setContent(resultSet.getString("content"));
-                diary.setVisibility(resultSet.getBoolean("visibility"));
+                diary.setId(resultSet.getInt(DIARY_ID));
+                diary.setUserId(resultSet.getInt(USER_ID));
+                diary.setDateOfDiary(resultSet.getDate(DATE_OF_DIARY));
+                diary.setContent(resultSet.getString(CONTENT));
+                diary.setVisibility(resultSet.getBoolean(VISIBILITY));
             }
         } catch (Exception e) {
             return diary;
@@ -42,16 +46,16 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
         List<Diary> list = new ArrayList<>();
         String query = "SELECT * FROM diary "
                 + "WHERE visibility = 1 "
-                + "ORDER BY diary_id DESC";
+                + "ORDER BY DIARY_ID DESC";
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 Diary diary = new Diary();
-                diary.setId(resultSet.getInt("diary_id"));
-                diary.setUserId(resultSet.getInt("user_id"));
-                diary.setDateOfDiary(resultSet.getDate("date_of_diary"));
-                diary.setContent(resultSet.getString("content"));
-                diary.setVisibility(resultSet.getBoolean("visibility"));
+                diary.setId(resultSet.getInt(DIARY_ID));
+                diary.setUserId(resultSet.getInt(USER_ID));
+                diary.setDateOfDiary(resultSet.getDate(DATE_OF_DIARY));
+                diary.setContent(resultSet.getString(CONTENT));
+                diary.setVisibility(resultSet.getBoolean(VISIBILITY));
                 list.add(diary);
             }
         } catch (Exception ex) {
@@ -70,11 +74,11 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 Diary diary = new Diary();
-                diary.setId(resultSet.getInt("diary_id"));
-                diary.setUserId(resultSet.getInt("user_id"));
-                diary.setDateOfDiary(resultSet.getDate("date_of_diary"));
-                diary.setContent(resultSet.getString("content"));
-                diary.setVisibility(resultSet.getBoolean("visibility"));
+                diary.setId(resultSet.getInt("DIARY_ID"));
+                diary.setUserId(resultSet.getInt(USER_ID));
+                diary.setDateOfDiary(resultSet.getDate(DATE_OF_DIARY));
+                diary.setContent(resultSet.getString(CONTENT));
+                diary.setVisibility(resultSet.getBoolean(VISIBILITY));
                 list.add(diary);
             }
         } catch (Exception ex) {
@@ -109,7 +113,7 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
                 + "date_of_diary = '%s', "
                 + "content = '%s', "
                 + "visibility = %s "
-                + "WHERE diary_id = %d",
+                + "WHERE DIARY_ID = %d",
                 diary.getDateOfDiary(),
                 diary.getContent(),
                 diary.isVisibility() ? 1 : 0,
@@ -127,7 +131,7 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
     @Override
     public Diary remove(Integer index) {
         String query = String
-                .format("DELETE FROM diary WHERE diary_id = %d", index);
+                .format("DELETE FROM diary WHERE DIARY_ID = %d", index);
         Diary deletedDiary = get(index);
         try {
             database.executeSQL(query);
