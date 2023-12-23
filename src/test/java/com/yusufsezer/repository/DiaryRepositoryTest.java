@@ -17,7 +17,7 @@ class DiaryRepositoryTest {
 	void testGet() throws FileNotFoundException{	
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
-		Integer existingDiaryId = 4;
+		Integer existingDiaryId = 1;
 		assertNotNull(existingDiaryRepository.get(existingDiaryId));
 	}
 
@@ -25,7 +25,7 @@ class DiaryRepositoryTest {
 	void testGetAll() throws FileNotFoundException{
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
-		List<Diary> existingDiaryList = existingDiaryRepository.getAll();
+		List<Diary> existingDiaryList = existingDiaryRepository.getAll();	
 		assertFalse(existingDiaryList.isEmpty());
 	}
 
@@ -33,9 +33,9 @@ class DiaryRepositoryTest {
 	void testGetAllByUserId() throws FileNotFoundException{
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
-		Integer existingUserId = 4; //Sin Diarios
-		List<Diary> existingDiaryList = existingDiaryRepository.getAllByUserId(existingUserId, false);	
-		assertFalse(!existingDiaryList.isEmpty());
+		Integer existingUserId = 1; 
+		List<Diary> existingDiaryList = existingDiaryRepository.getAllByUserId(existingUserId, true);	
+		assertFalse(existingDiaryList.isEmpty());
 	}
 
 	@Test
@@ -43,12 +43,18 @@ class DiaryRepositoryTest {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary newDiary = new Diary();
-		Integer userId = 300;
-		newDiary.setContent(String.format("Ingresando un diario desde pruebas junit con id de usuario %d", userId));
-		newDiary.setUserId(userId);
+		newDiary.setContent("Ingresando un diario desde pruebas junit con id de usuario");
 		newDiary.setDateOfDiary(new Date());
 		newDiary.setVisibility(true);		
-		assertTrue(existingDiaryRepository.add(newDiary));
+		
+		boolean resultTest = existingDiaryRepository.add(newDiary);
+		assertTrue(resultTest);
+			
+		if (resultTest) {
+			List<Diary> existingDiaryList = existingDiaryRepository.getAll();
+			Integer diaryIdLast = existingDiaryList.get(0).getId();
+			existingDiaryRepository.remove(diaryIdLast);
+		}
 	}
 
 	@Test
@@ -60,10 +66,10 @@ class DiaryRepositoryTest {
 		copyDiary.setContent("Actualizacion del diario");
 		copyDiary.setUserId(500);
 		copyDiary.setId(existingDiaryId);	
+		copyDiary.setVisibility(true);	
 		LocalDate localDate = LocalDate.now();
 		Date date = java.sql.Date.valueOf(localDate);
 		copyDiary.setDateOfDiary(date);
-		copyDiary.setVisibility(false);		
 		assertNotNull(existingDiaryRepository.update(existingDiaryId, copyDiary));
 	}
 	
@@ -73,13 +79,12 @@ class DiaryRepositoryTest {
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary newDiary = new Diary();	
 		newDiary.setContent("Borrando un diario desde pruebas junit");
-		newDiary.setUserId(1000);
 		newDiary.setDateOfDiary(new Date());
-		newDiary.setVisibility(false);	
+		newDiary.setVisibility(true);	
 		existingDiaryRepository.add(newDiary);	
 		
 		List<Diary> allDiary = existingDiaryRepository.getAll();
-		Integer lastDiaryId = allDiary.get(allDiary.size() - 1).getId();
+		Integer lastDiaryId = allDiary.get(0).getId();
 	
 		assertNotNull(existingDiaryRepository.remove(lastDiaryId));
 	}

@@ -16,7 +16,7 @@ class UserRepositoryTest {
 	void positiveTestGet() throws FileNotFoundException{
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		UserRepository existingUserRepository = new UserRepository(mySQL);
-		Integer existingUserId = 3;
+		Integer existingUserId = 1;
 		assertNotNull(existingUserRepository.get(existingUserId));
 	}
 
@@ -37,7 +37,16 @@ class UserRepositoryTest {
 		newUser.setFirstName("Juan");
 		newUser.setLastName("Florez");
 		newUser.setPassword("12345678");			
-		assertTrue(existingUserRepository.add(newUser));
+		
+		boolean addTest = existingUserRepository.add(newUser);
+		
+		assertTrue(addTest);
+
+		if (addTest) {
+			List<User> allUsers = existingUserRepository.getAll();
+			int lastUserId = allUsers.get(allUsers.size() - 1).getId();
+			existingUserRepository.remove(lastUserId);
+		}	
 	}
 
 	@Test
@@ -74,7 +83,7 @@ class UserRepositoryTest {
 	void positiveTestLogin() throws FileNotFoundException{
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		UserRepository existingUserRepository = new UserRepository(mySQL);
-		assertNotNull(existingUserRepository.login("bdiazca@unsa.edu.pe", "123456"));
+		assertNotNull(existingUserRepository.login("berly@gmail.com", "berly"));
 	}
 	
 	@Test

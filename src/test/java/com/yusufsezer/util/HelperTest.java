@@ -1,12 +1,12 @@
 package com.yusufsezer.util;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
+import static org.junit.jupiter.api.Assertions.assertNull;
 import java.io.FileNotFoundException;
-
 import org.junit.jupiter.api.Test;
 import com.yusufsezer.model.Diary;
-import com.yusufsezer.model.User;
 import com.yusufsezer.repository.DiaryRepository;
+import com.yusufsezer.model.User;
 import com.yusufsezer.repository.UserRepository;
 
 class HelperTest {
@@ -29,13 +29,13 @@ class HelperTest {
 	void negativeTestUserRepository() throws FileNotFoundException{	
 		UserRepository userRepository = Helper.userRepository();
 		User noExistingUser = userRepository.get(12323);
-		assertNotNull(noExistingUser);
+		assertNull(noExistingUser);
 	}
 
 	@Test
 	void negativeTestDiaryRepository() throws FileNotFoundException{	
 		DiaryRepository diaryRepository = Helper.diaryRepository();	
 		Diary noExistingRepository = diaryRepository.get(4534534);
-		assertNotNull(noExistingRepository);	
+		assertNull(noExistingRepository);	
 	}
 }

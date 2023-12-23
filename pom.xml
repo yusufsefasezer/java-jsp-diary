@@ -9,21 +9,22 @@
 
     <name>java-jsp-diary</name>
 
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+    <dependencies>		
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
             <version>4.0.1</version>
             <scope>provided</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc -->
         <dependency>
             <groupId>org.xerial</groupId>
             <artifactId>sqlite-jdbc</artifactId>
             <version>3.28.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
@@ -35,7 +36,6 @@
 		    <version>5.10.1</version>
 		    <scope>test</scope>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-engine -->
 		<dependency>
 		    <groupId>org.junit.jupiter</groupId>
 		    <artifactId>junit-jupiter-engine</artifactId>
@@ -47,22 +47,46 @@
     <build>
         <finalName>java-jsp-diary</finalName>
         <plugins>
+			
+		  <plugin>
+	        <artifactId>maven-compiler-plugin</artifactId>
+	        <version>3.8.1</version>
+	        <configuration>
+	          <release>17</release>
+	        </configuration>
+	      </plugin>
+	      				
             <plugin>
-                <!-- https://mvnrepository.com/artifact/org.apache.tomcat.maven/tomcat7-maven-plugin -->
                 <groupId>org.apache.tomcat.maven</groupId>
-                <artifactId>tomcat7-maven-plugin</artifactId>
+                <artifactId>tomcat7-maven-plugin</artifactId>                             
                 <version>2.2</version>
                 <configuration>
                     <port>80</port>
                     <path>/</path>
                 </configuration>
             </plugin>
+                                
+		    <plugin>
+				  <groupId>org.apache.maven.plugins</groupId>
+				  <artifactId>maven-shade-plugin</artifactId>
+				  <version>3.2.4</version>
+				  <executions>
+					  <execution>
+						  <phase>package</phase>
+						  <goals>
+							  <goal>shade</goal>
+						  </goals>
+					  </execution>
+				  </executions>
+			  </plugin>
+			  
+			  <plugin>
+		        <groupId>org.sonarsource.scanner.maven</groupId>
+		        <artifactId>sonar-maven-plugin</artifactId>
+		        <version>3.7.0.1746</version>
+		      </plugin>
+                         
         </plugins>
     </build>
-
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
 
 </project>
