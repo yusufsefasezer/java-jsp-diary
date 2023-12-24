@@ -23,7 +23,7 @@ class SeleniumTest {
 	public void setUp() throws Exception {
 		driver = new ChromeDriver();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		baseUrl = "http://localhost:8080/java-jsp-diary/";
+		baseUrl = "http://localhost:4444/java-jsp-diary/";
 		existingUser = new User(1, "berly", "diaz", "berly@gmail.com", "berly"); 
 	}
 	
@@ -35,7 +35,7 @@ class SeleniumTest {
 	@Test
 	void getMessage() {
 				   
-	    driver.navigate().to("http://localhost:8080/java-jsp-diary/"); 
+	    driver.navigate().to(baseUrl); 
 	    
 	    driver.manage().window().maximize();     
 	    
@@ -51,7 +51,7 @@ class SeleniumTest {
 				   
 		final String SELENIUM_MESSAGE = "nuevo mensaje desde SeleniumTest";
 		
-	    driver.navigate().to("http://localhost:8080/java-jsp-diary/"); 
+	    driver.navigate().to(baseUrl); 
 	    
 	    driver.manage().window().maximize();     
 	    
@@ -67,7 +67,7 @@ class SeleniumTest {
 	    
 	    driver.findElement(By.xpath("/html/body/main/div/div/form/button")).click();   
 	    
-	    driver.navigate().to("http://localhost:8080/java-jsp-diary/"); 
+	    driver.navigate().to(baseUrl); 
 	    
 	    String message = driver.findElement(By.xpath("/html/body/main/div/div/div/div[1]/div/div[1]/p")).getText();
 	    
