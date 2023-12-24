@@ -24,17 +24,17 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
     @Override
     public Diary get(Integer index) {
         Diary diary = null;
-        String query = String
-                .format("SELECT * FROM diary WHERE diary_id = %d", index);
+        String query = String.format("SELECT * FROM diary WHERE %s = %d", DIARY_ID_COLUMN, index);
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                diary = new Diary();
-                diary.setId(resultSet.getInt(DIARY_ID_COLUMN));
-                diary.setUserId(resultSet.getInt(USER_ID_COLUMN));
-                diary.setDateOfDiary(resultSet.getDate(DATE_OF_DIARY_COLUMN));
-                diary.setContent(resultSet.getString(CONTENT_COLUMN));
-                diary.setVisibility(resultSet.getBoolean(VISIBILITY_COLUMN));
+                diary = new Diary(
+                		resultSet.getInt(DIARY_ID_COLUMN),
+                		resultSet.getInt(USER_ID_COLUMN),
+                		resultSet.getDate(DATE_OF_DIARY_COLUMN),
+                		resultSet.getString(CONTENT_COLUMN),
+                		resultSet.getBoolean(VISIBILITY_COLUMN)
+                		);                             
             }
         } catch (Exception e) {
             return diary;
@@ -50,12 +50,13 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                Diary diary = new Diary();
-                diary.setId(resultSet.getInt(DIARY_ID_COLUMN));
-                diary.setUserId(resultSet.getInt(USER_ID_COLUMN));
-                diary.setDateOfDiary(resultSet.getDate(DATE_OF_DIARY_COLUMN));
-                diary.setContent(resultSet.getString(CONTENT_COLUMN));
-                diary.setVisibility(resultSet.getBoolean(VISIBILITY_COLUMN));
+                Diary diary = new Diary(
+                		resultSet.getInt(DIARY_ID_COLUMN),
+                		resultSet.getInt(USER_ID_COLUMN),
+                		resultSet.getDate(DATE_OF_DIARY_COLUMN),
+                		resultSet.getString(CONTENT_COLUMN),
+                		resultSet.getBoolean(VISIBILITY_COLUMN)
+                		); 
                 list.add(diary);
             }
         } catch (Exception ex) {
@@ -71,12 +72,13 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                Diary diary = new Diary();
-                diary.setId(resultSet.getInt(DIARY_ID_COLUMN));
-                diary.setUserId(resultSet.getInt(USER_ID_COLUMN));
-                diary.setDateOfDiary(resultSet.getDate(DATE_OF_DIARY_COLUMN));
-                diary.setContent(resultSet.getString(CONTENT_COLUMN));
-                diary.setVisibility(resultSet.getBoolean(VISIBILITY_COLUMN));
+                Diary diary = new Diary(
+                		resultSet.getInt(DIARY_ID_COLUMN),
+                		resultSet.getInt(USER_ID_COLUMN),
+                		resultSet.getDate(DATE_OF_DIARY_COLUMN),
+                		resultSet.getString(CONTENT_COLUMN),
+                		resultSet.getBoolean(VISIBILITY_COLUMN)
+                		); 
                 list.add(diary);
             }
         } catch (Exception ex) {

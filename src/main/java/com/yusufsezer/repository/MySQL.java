@@ -32,5 +32,4 @@ public class MySQL implements IDatabase {
             throws SQLException, ClassNotFoundException {
         return getConnection().createStatement().execute(sql);
     }
-
 }

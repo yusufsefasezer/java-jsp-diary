@@ -28,12 +28,13 @@ public class UserRepository implements IRepository<User, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                user = new User();
-                user.setId(resultSet.getInt(USER_ID_COLUMN));
-                user.setFirstName(resultSet.getString(FIRST_NAME_COLUMN));
-                user.setLastName(resultSet.getString(LAST_NAME_COLUMN));
-                user.setEmail(resultSet.getString(EMAIL_COLUMN));
-                user.setPassword(resultSet.getString(PASSWORD_COLUMN));
+                user = new User(
+                	resultSet.getInt(USER_ID_COLUMN),
+                	resultSet.getString(FIRST_NAME_COLUMN),
+                	resultSet.getString(LAST_NAME_COLUMN),
+                	resultSet.getString(EMAIL_COLUMN),
+                	resultSet.getString(PASSWORD_COLUMN)
+                	);
             }
         } catch (Exception e) {
             return user;
@@ -49,12 +50,13 @@ public class UserRepository implements IRepository<User, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                User user = new User();
-                user.setId(resultSet.getInt(USER_ID_COLUMN));
-                user.setFirstName(resultSet.getString(FIRST_NAME_COLUMN));
-                user.setLastName(resultSet.getString(LAST_NAME_COLUMN));
-                user.setEmail(resultSet.getString(EMAIL_COLUMN));
-                user.setPassword(resultSet.getString(PASSWORD_COLUMN));
+                User user = new User(
+                	resultSet.getInt(USER_ID_COLUMN),
+                	resultSet.getString(FIRST_NAME_COLUMN),
+                	resultSet.getString(LAST_NAME_COLUMN),
+                	resultSet.getString(EMAIL_COLUMN),
+                	resultSet.getString(PASSWORD_COLUMN)
+                	);
                 list.add(user);
             }
         } catch (Exception ex) {
@@ -83,13 +85,10 @@ public class UserRepository implements IRepository<User, Integer> {
 
     @Override
     public User update(Integer index, User user) {
+    	
         User updatedUser = get(index);
-        String query = String.format("UPDATE user SET "
-                + "%s = '%s', "
-                + "%s = '%s', "
-                + "%s = '%s', "
-                + "%s = '%s' "
-                + "WHERE %s = %d",
+        
+        String query = String.format("UPDATE user SET %s = '%s', %s = '%s', %s = '%s', %s = '%s' WHERE %s = %d",
                 FIRST_NAME_COLUMN,
                 user.getFirstName(),
                 LAST_NAME_COLUMN,
@@ -125,24 +124,21 @@ public class UserRepository implements IRepository<User, Integer> {
 
     public User login(String email, String password) {
         User user = null;
-        String query = String
-                .format("SELECT * FROM user "
-                        + "WHERE %s = '%s' "
-                        + "AND %s = md5('%s')", EMAIL_COLUMN, email, PASSWORD_COLUMN, password);
+        String query = String.format("SELECT * FROM user WHERE %s = '%s' AND %s = md5('%s')", EMAIL_COLUMN, email, PASSWORD_COLUMN, password);
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
-                user = new User();
-                user.setId(resultSet.getInt(USER_ID_COLUMN));
-                user.setFirstName(resultSet.getString(FIRST_NAME_COLUMN));
-                user.setLastName(resultSet.getString(LAST_NAME_COLUMN));
-                user.setEmail(resultSet.getString(EMAIL_COLUMN));
-                user.setPassword(resultSet.getString(PASSWORD_COLUMN));
+            	user = new User(
+                	resultSet.getInt(USER_ID_COLUMN),
+                	resultSet.getString(FIRST_NAME_COLUMN),
+                	resultSet.getString(LAST_NAME_COLUMN),
+                	resultSet.getString(EMAIL_COLUMN),
+                	resultSet.getString(PASSWORD_COLUMN)
+                	);
             }
         } catch (Exception e) {
             return user;
         }
         return user;
     }
-
 }
