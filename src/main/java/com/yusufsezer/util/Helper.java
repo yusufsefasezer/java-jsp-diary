@@ -47,7 +47,6 @@ public class Helper {
 		
     	Properties prop = new Properties();
     	String url = null;
-    	String url_2 = "jdbc:mysql://mysql-container:3306/jspDiary?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=root&password=db-psw&useUnicode=true&characterEncoding=UTF-8";
     	
     	try (InputStream input = new FileInputStream("/usr/local/tomcat/webapps/config.properties")) { 		
     	    prop.load(input);
@@ -61,7 +60,7 @@ public class Helper {
     	    url = String.format("jdbc:mysql://%s:%s/%s?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=%s&password=%s&useUnicode=true&characterEncoding=UTF-8"
     	    		, COINTAINER_DB, PORT, DATA_BASE_NAME, USER, PASSWORD);  
     	    
-    	    logger.log(System.Logger.Level.INFO, url.compareTo(url_2) == 0 ? "Iguales" : "No iguales");
+    	    logger.log(System.Logger.Level.INFO, "Valid database url");
     	    return url;
     	            
     	} catch (IOException e) {
