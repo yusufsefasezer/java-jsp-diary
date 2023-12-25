@@ -12,7 +12,7 @@ public class Initial {
     	Properties prop = new Properties();
     	String url = null;
     	
-    	try (InputStream input = new FileInputStream("./config.properties")) { 		
+    	try (InputStream input = new FileInputStream(System.getProperty("user.dir") + "/config.properties")) { 		
     	    prop.load(input);
     	    
     	    final String PORT = prop.getProperty("db.port");
@@ -23,7 +23,7 @@ public class Initial {
     	    url = String.format("jdbc:mysql://mysql-container:%s/%s?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=%s&password=%s&useUnicode=true&characterEncoding=UTF-8"
     	    		,PORT, COINTAINER_DB, USER, PASSWORD);  	
     	    
-    	    System.out.println(url);
+    	    System.out.println(System.getProperty("user.dir") + "\\config.properties");
            
     	} catch (IOException e) {
     	    e.printStackTrace();
