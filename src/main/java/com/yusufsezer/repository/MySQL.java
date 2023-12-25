@@ -35,14 +35,22 @@ public class MySQL implements IDatabase {
     }
 
     @Override
-    public ResultSet executeQuery(String query)
-            throws SQLException, ClassNotFoundException {
-        return getConnection().createStatement().executeQuery(query);
+    public ResultSet executeQuery(String query) {
+        try {
+			return getConnection().createStatement().executeQuery(query);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
     }
 
     @Override
-    public Object executeSQL(String sql)
-            throws SQLException, ClassNotFoundException {
-        return getConnection().createStatement().execute(sql);
+    public Object executeSQL(String sql) {
+        try {
+			return getConnection().createStatement().execute(sql);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
     }
 }
