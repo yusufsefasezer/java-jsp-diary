@@ -52,7 +52,7 @@ pipeline {
         stage('Run Docker DataBase Image') {
             steps {           
             	withCredentials([string(credentialsId: 'con-mysql', variable: 'c-mysql-psw')]) {
-				    bat 'docker run -itd --name mysql-container --network my-network -e MYSQL_ROOT_PASSWORD=${c-mysql-psw} -p 3307:3306 db-java-jsp-diary'
+				    bat 'docker run -itd --name mysql-container --network my-network -e MYSQL_ROOT_PASSWORD=${c-mysql-psw} -p 3306:3306 db-java-jsp-diary'
 				}             
             }
         }
