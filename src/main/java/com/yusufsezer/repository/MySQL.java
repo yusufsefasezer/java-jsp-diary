@@ -15,10 +15,14 @@ public class MySQL implements IDatabase {
     }
 
     @Override
-    public Connection getConnection()
-            throws ClassNotFoundException, SQLException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        return DriverManager.getConnection(source);
+    public Connection getConnection() {           
+        try {        
+        	Class.forName("com.mysql.cj.jdbc.Driver");
+			return DriverManager.getConnection(source);
+		} catch (SQLException | ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+        return null;
     }
 
     @Override
