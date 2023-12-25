@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import java.io.FileNotFoundException;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import com.yusufsezer.util.Helper;
@@ -13,7 +12,7 @@ import com.yusufsezer.model.User;
 class UserRepositoryTest {
 
 	@Test
-	void positiveTestGet() throws FileNotFoundException{
+	void positiveTestGet() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		UserRepository existingUserRepository = new UserRepository(mySQL);
 		Integer existingUserId = 1;
@@ -21,7 +20,7 @@ class UserRepositoryTest {
 	}
 
 	@Test
-	void positiveTestGetAll() throws FileNotFoundException{
+	void positiveTestGetAll() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		UserRepository existingUserRepository = new UserRepository(mySQL);
 		List<User> existingUserList = existingUserRepository.getAll();
@@ -29,7 +28,7 @@ class UserRepositoryTest {
 	}
 
 	@Test
-	void positiveTestAdd() throws FileNotFoundException{
+	void positiveTestAdd() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		UserRepository existingUserRepository = new UserRepository(mySQL);
 		User newUser = new User();
@@ -50,7 +49,7 @@ class UserRepositoryTest {
 	}
 
 	@Test
-	void positiveTestUpdate() throws FileNotFoundException{
+	void positiveTestUpdate() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		UserRepository existingUserRepository = new UserRepository(mySQL);
 		User copyUser = new User();
@@ -63,7 +62,7 @@ class UserRepositoryTest {
 	}
 
 	@Test
-	void positiveTestRemove() throws FileNotFoundException{
+	void positiveTestRemove() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		UserRepository existingUserRepository = new UserRepository(mySQL);
 		User newUser = new User();
@@ -80,14 +79,14 @@ class UserRepositoryTest {
 	}
 
 	@Test
-	void positiveTestLogin() throws FileNotFoundException{
+	void positiveTestLogin() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		UserRepository existingUserRepository = new UserRepository(mySQL);
 		assertNotNull(existingUserRepository.login("berly@gmail.com", "berly"));
 	}
 	
 	@Test
-	void incorrectTestLogin() throws FileNotFoundException{
+	void incorrectTestLogin() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		UserRepository existingUserRepository = new UserRepository(mySQL);
 		assertNull(existingUserRepository.login("bdiazca@unsa.edu.pe", "464356534324"));

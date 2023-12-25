@@ -6,11 +6,14 @@ import com.yusufsezer.repository.DiaryRepository;
 import com.yusufsezer.repository.MySQL;
 import com.yusufsezer.repository.UserRepository;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.lang.System.Logger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
+import java.util.Properties;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,8 +43,28 @@ public class Helper {
                 : viewFileAttribute.toString();
     }
 
-    public static String getUrlDatabase() {   	 	      	  	
+    public static String getUrlDatabase() {  
     	
+    	Properties prop = new Properties();
+    	String url = null;
+    	
+    	try (InputStream input = new FileInputStream(".\\config.properties")) { 		
+    	    prop.load(input);
+    	    
+    	    final String PORT = prop.getProperty("db.port");
+    	    final String USER = prop.getProperty("db.user");
+    	    final String PASSWORD = prop.getProperty("db.password");
+    	    final String COINTAINER_DB = prop.getProperty("db.containerName");
+    	    
+    	    url = String.format("jdbc:mysql://mysql-container:%s/%s?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=%s&password=%s&useUnicode=true&characterEncoding=UTF-8"
+    	    		,PORT, COINTAINER_DB, USER, PASSWORD);
+    	    
+    	    return url;
+           
+    	} catch (IOException e) {
+    	    e.printStackTrace();
+    	} 
+   	
     	return "jdbc:mysql://mysql-container:3306/jspDiary?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=root&password=db-psw&useUnicode=true&characterEncoding=UTF-8"; 
     }
 
