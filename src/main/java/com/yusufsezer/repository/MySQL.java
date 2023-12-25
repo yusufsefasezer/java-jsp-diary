@@ -2,15 +2,11 @@ package com.yusufsezer.repository;
 
 import com.yusufsezer.contracts.IDatabase;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
 
 public class MySQL implements IDatabase {
 
@@ -19,29 +15,22 @@ public class MySQL implements IDatabase {
     @Override
     public Connection getConnection() throws ClassNotFoundException, SQLException, FileNotFoundException {
         Class.forName("com.mysql.cj.jdbc.Driver");
-             
-    	Properties prop = new Properties();
- 	
-    	try (InputStream input = new FileInputStream(System.getProperty("user.dir") + "/config.properties")) { 		
-    	    prop.load(input);
-    	    
-    	    String containerName = "mysql-container";
-    	    String dataBase = "jspDiary";
-    	    String port = "3306";
-    	    String user = "root";
-    	    String password = "db-container-psw";	    
-    	    
-    	    String url = String.format("jdbc:mysql://%s:%s/%s", containerName, port, dataBase);   	      	    
-    	    
-    	    return DriverManager.getConnection(url, user, password);
-           
-    	} catch (IOException e) {
-    	    e.printStackTrace();
-    	}
-        
-    	System.out.println("Es null");
-    	
-        return null;   
+             	
+	    String containerName = "mysql-container";
+	    String dataBase = "jspDiary";
+	    String port = "3306";
+	    String user = "root";
+	    String password = "db-container-psw";	    
+	    
+	    String url = String.format("jdbc:mysql://%s:%s/%s", containerName, port, dataBase);   	      	    
+	    
+	    Connection mierdaDriverManager = DriverManager.getConnection(url, user, password);
+	    
+	    if (mierdaDriverManager == null) {
+	    	System.out.println("Null");
+	    }
+	    
+	    return mierdaDriverManager;
     }
 
     @Override
