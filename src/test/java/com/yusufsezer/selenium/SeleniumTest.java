@@ -23,7 +23,7 @@ class SeleniumTest {
 	public void setUp() throws Exception {
 		driver = new ChromeDriver();
 		wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-		baseUrl = "http://localhost:4444/java-jsp-diary/";
+		baseUrl = "http://localhost:8080/java-jsp-diary/";
 		existingUser = new User(1, "berly", "diaz", "berly@gmail.com", "berly"); 
 	}
 	
