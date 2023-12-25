@@ -51,7 +51,7 @@ pipeline {
         
         stage('Run Docker DataBase Image') {
             steps {
-                bat 'docker run --d --name mysql-container --network my-network -e MYSQL_USER -e MYSQL_PASSWORD -e MYSQL_DATABASE -p 3306:3306 db-java-jsp-diary'
+                bat 'docker run -d --name mysql-container --network my-network -e MYSQL_USER -e MYSQL_PASSWORD -e MYSQL_DATABASE -p 3306:3306 db-java-jsp-diary'
             }
         }
         
