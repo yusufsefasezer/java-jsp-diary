@@ -22,7 +22,7 @@ public class MySQL implements IDatabase {
              
     	Properties prop = new Properties();
  	
-    	try (InputStream input = new FileInputStream(System.getProperty("user.dir") + "\\config.properties")) { 		
+    	try (InputStream input = new FileInputStream(System.getProperty("user.dir") + "/config.properties")) { 		
     	    prop.load(input);
     	    
     	    String containerName = "mysql-container";
