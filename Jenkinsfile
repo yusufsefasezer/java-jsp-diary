@@ -37,14 +37,12 @@ pipeline {
         }
         */
         
-        /*
         stage('Build Docker Network') {
             steps {
                 bat 'docker network create my-network'
             }
         }
-        */
-        
+     
         stage('Build Docker DataBase Image') {
             steps {
                 bat 'docker build -f Dockerfile.db -t db-java-jsp-diary .'
@@ -54,12 +52,11 @@ pipeline {
         stage('Run Docker DataBase Image') {
             steps {           
             	withCredentials([string(credentialsId: 'con-mysql', variable: 'c-mysql-psw')]) {
-				    bat 'docker run -d --name mysql-container -e MYSQL_ROOT_PASSWORD=${c-mysql-psw} -p 3306:3306 db-java-jsp-diary'
+				    bat 'docker run -d --name mysql-container --network my-network -e MYSQL_ROOT_PASSWORD=${c-mysql-psw} -p 3306:3306 db-java-jsp-diary'
 				}             
             }
         }
             
-        /*
         stage('Docker Build Project Image ') {
             steps {
                 bat 'docker build -f Dockerfile.tc -t java-jsp-diary .'
@@ -69,10 +66,10 @@ pipeline {
         stage('Docker Run Project Image') {
             steps {
                 bat 'docker run -d --name jspDiary-container --network my-network -p 4444:8080 java-jsp-diary'
-                bat 'docker ps'
             }
         }
 
+		/*
         stage('Test') {
             steps {
                 bat 'mvn test'
