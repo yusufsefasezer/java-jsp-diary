@@ -58,9 +58,7 @@ pipeline {
 				}             
             }
         }
-        
-        db-container-psw 
-        
+            
         /*
         stage('Docker Build Project Image ') {
             steps {
