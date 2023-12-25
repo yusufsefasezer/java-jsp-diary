@@ -1,8 +1,8 @@
 
 FROM mysql:latest
-ENV MYSQL_PASSWORD=matafurros9000 
-ENV MYSQL_USER=root
-ENV MYSQL_NAME=jspDiary
+ENV MYSQL_PASSWORD matafurros9000 
+ENV MYSQL_USER root
+ENV MYSQL_DATABASE jspDiary
 COPY db-java-jsp-diary.sql /docker-entrypoint-initdb.d/
 EXPOSE 3306
 
