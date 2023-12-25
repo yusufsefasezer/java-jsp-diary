@@ -6,7 +6,6 @@ import com.yusufsezer.repository.DiaryRepository;
 import com.yusufsezer.repository.MySQL;
 import com.yusufsezer.repository.UserRepository;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -39,9 +38,13 @@ public class Helper {
                 : viewFileAttribute.toString();
     }
 
+    public static String getUrlDatabase() {   	 	      	
+    	return "jdbc:mysql://mysql-container:3306/jspDiary?useSSL=false&serverTimezone=UTC&user=root&password=mysql-container";
+    }
+
     private static IDatabase getMySQLDatabase() {
         if (Helper.dataBase == null) {
-            Helper.dataBase = new MySQL();
+            Helper.dataBase = new MySQL(Helper.getUrlDatabase());
         }
         return Helper.dataBase;
     }

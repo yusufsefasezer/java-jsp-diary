@@ -9,12 +9,13 @@ import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import com.yusufsezer.model.Diary;
+import com.yusufsezer.util.Helper;
 
 class DiaryRepositoryTest {
 
 	@Test
 	void testGet() throws FileNotFoundException{	
-		MySQL mySQL = new MySQL();
+		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Integer existingDiaryId = 1;
 		assertNotNull(existingDiaryRepository.get(existingDiaryId));
@@ -22,7 +23,7 @@ class DiaryRepositoryTest {
 
 	@Test
 	void testGetAll() throws FileNotFoundException{
-		MySQL mySQL = new MySQL();
+		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		List<Diary> existingDiaryList = existingDiaryRepository.getAll();	
 		assertFalse(existingDiaryList.isEmpty());
@@ -30,7 +31,7 @@ class DiaryRepositoryTest {
 
 	@Test
 	void testGetAllByUserId() throws FileNotFoundException{
-		MySQL mySQL = new MySQL();
+		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Integer existingUserId = 1; 
 		List<Diary> existingDiaryList = existingDiaryRepository.getAllByUserId(existingUserId, true);	
@@ -39,7 +40,7 @@ class DiaryRepositoryTest {
 
 	@Test
 	void testAdd() throws FileNotFoundException{	
-		MySQL mySQL = new MySQL();
+		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary newDiary = new Diary();
 		newDiary.setContent("Ingresando un diario desde pruebas junit con id de usuario");
@@ -58,7 +59,7 @@ class DiaryRepositoryTest {
 
 	@Test
 	void testUpdate() throws FileNotFoundException {
-		MySQL mySQL = new MySQL();
+		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary copyDiary = new Diary();
 		Integer existingDiaryId = 4;	
@@ -74,7 +75,7 @@ class DiaryRepositoryTest {
 	
 	@Test
 	void testRemove() throws FileNotFoundException{
-		MySQL mySQL = new MySQL();
+		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary newDiary = new Diary();	
 		newDiary.setContent("Borrando un diario desde pruebas junit");
