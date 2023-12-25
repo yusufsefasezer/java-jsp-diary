@@ -44,9 +44,10 @@ public class Helper {
     }
 
 	public static String getUrlDatabase() {   	
-		/*
+		
     	Properties prop = new Properties();
     	String url = null;
+    	String url_2 = "jdbc:mysql://mysql-container:3306/jspDiary?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=root&password=db-psw&useUnicode=true&characterEncoding=UTF-8";
     	
     	try (InputStream input = new FileInputStream("/usr/local/tomcat/webapps/config.properties")) { 		
     	    prop.load(input);
@@ -57,16 +58,15 @@ public class Helper {
     	    final String COINTAINER_DB = prop.getProperty("db.containerName");
     	    
     	    url = String.format("jdbc:mysql://mysql-container:%s/%s?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=%s&password=%s&useUnicode=true&characterEncoding=UTF-8"
-    	    		,PORT, COINTAINER_DB, USER, PASSWORD);  
+    	    		, PORT, COINTAINER_DB, USER, PASSWORD);  
     	    
-    	    logger.log(System.Logger.Level.INFO, url);
+    	    logger.log(System.Logger.Level.INFO, url.compareTo(url_2) == 0 ? "Iguales" : "No iguales");
     	            
     	} catch (IOException e) {
     	    e.printStackTrace();
     	} 
-    	*/
 		
-    	return "jdbc:mysql://mysql-container:3306/jspDiary?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=root&password=db-psw&useUnicode=true&characterEncoding=UTF-8"; 
+    	return url_2; 
     }
 
     private static IDatabase getMySQLDatabase() {
