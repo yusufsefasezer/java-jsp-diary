@@ -6,14 +6,11 @@ import com.yusufsezer.repository.DiaryRepository;
 import com.yusufsezer.repository.MySQL;
 import com.yusufsezer.repository.UserRepository;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
-import java.util.Properties;
-import java.io.InputStream;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -42,35 +39,18 @@ public class Helper {
                 : viewFileAttribute.toString();
     }
 
-    public static String getUrlDatabase() throws FileNotFoundException {
-    	Properties prop = new Properties();
-    	String url = null;
-    	try (InputStream input = new FileInputStream("C:\\Users\\USUARIO\\git\\java-jsp-diary\\config.properties")) { 		
-    	    prop.load(input);
-    	    String dbUrl = prop.getProperty("db.url");
-    	    String user = prop.getProperty("db.user");
-    	    String password = prop.getProperty("db.password");
-    	    url = String.format("%s&user=%s&password=%s",dbUrl, user, password);
-           
-    	} catch (IOException e) {
-    	    e.printStackTrace();
-    	}
-    	
-    	return url;
-    }
-
-    private static IDatabase getMySQLDatabase() throws FileNotFoundException {
+    private static IDatabase getMySQLDatabase() {
         if (Helper.dataBase == null) {
-            Helper.dataBase = new MySQL(Helper.getUrlDatabase());
+            Helper.dataBase = new MySQL();
         }
         return Helper.dataBase;
     }
 
-    public static UserRepository userRepository() throws FileNotFoundException{
+    public static UserRepository userRepository() {
         return new UserRepository(Helper.getMySQLDatabase());
     }
 
-    public static DiaryRepository diaryRepository() throws FileNotFoundException{
+    public static DiaryRepository diaryRepository() {
         return new DiaryRepository(Helper.getMySQLDatabase());
     }
 
