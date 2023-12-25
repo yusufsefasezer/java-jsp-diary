@@ -25,11 +25,12 @@ public class MySQL implements IDatabase {
     	try (InputStream input = new FileInputStream(System.getProperty("user.dir") + "\\config.properties")) { 		
     	    prop.load(input);
     	    
-    	    String containerName = prop.getProperty("db.containerName");
-    	    String dataBase = prop.getProperty("db.database");
-    	    String port = prop.getProperty("db.port");
-    	    String user = prop.getProperty("db.user");
-    	    String password = prop.getProperty("db.password");	    
+    	    String containerName = "mysql-container";
+    	    String dataBase = "jspDiary";
+    	    String port = "3306";
+    	    String user = "root";
+    	    String password = "db-container-psw";	    
+    	    
     	    String url = String.format("jdbc:mysql://%s:%s/%s", containerName, port, dataBase);
     	   	    
     	    return DriverManager.getConnection(url, user, password);
