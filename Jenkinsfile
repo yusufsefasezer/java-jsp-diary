@@ -45,7 +45,7 @@ pipeline {
         
         stage('Build Docker DataBase Image') {
             steps {
-                bat 'docker build -t db-java-jsp-diary .'
+                bat 'docker build -f Dockerfile.db -t db-java-jsp-diary .'
             }
         }
         
@@ -57,7 +57,7 @@ pipeline {
         
         stage('Docker Build Project Image ') {
             steps {
-                bat 'docker build -t java-jsp-diary .'
+                bat 'docker build -f Dockerfile.tc -t java-jsp-diary .'
             }
         }
         
