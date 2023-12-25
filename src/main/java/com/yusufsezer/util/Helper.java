@@ -54,19 +54,21 @@ public class Helper {
     	    
     	    final String PORT = prop.getProperty("db.port");
     	    final String USER = prop.getProperty("db.user");
+    	    final String DATA_BASE_NAME = prop.getProperty("db.database");
     	    final String PASSWORD = prop.getProperty("db.password");
     	    final String COINTAINER_DB = prop.getProperty("db.containerName");
     	    
-    	    url = String.format("jdbc:mysql://mysql-container:%s/%s?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=%s&password=%s&useUnicode=true&characterEncoding=UTF-8"
-    	    		, PORT, COINTAINER_DB, USER, PASSWORD);  
+    	    url = String.format("jdbc:mysql://%s:%s/%s?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=%s&password=%s&useUnicode=true&characterEncoding=UTF-8"
+    	    		, COINTAINER_DB, PORT, DATA_BASE_NAME, USER, PASSWORD);  
     	    
     	    logger.log(System.Logger.Level.INFO, url.compareTo(url_2) == 0 ? "Iguales" : "No iguales");
+    	    return url;
     	            
     	} catch (IOException e) {
     	    e.printStackTrace();
-    	} 
-		
-    	return url_2; 
+    	}
+    	
+    	return url; 
     }
 
     private static IDatabase getMySQLDatabase() {
