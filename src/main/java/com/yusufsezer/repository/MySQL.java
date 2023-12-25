@@ -1,7 +1,6 @@
 package com.yusufsezer.repository;
 
 import com.yusufsezer.contracts.IDatabase;
-import com.yusufsezer.util.Helper;
 import java.lang.System.Logger;
 import java.sql.Connection;
 import java.sql.DriverManager;
