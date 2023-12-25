@@ -39,7 +39,7 @@ public class Helper {
     }
 
     public static String getUrlDatabase() {   	 	      	
-    	return "jdbc:mysql://mysql-container:3307/jspDiary?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=root&password=berlydiaz&useUnicode=true&characterEncoding=UTF-8";
+    	return "jdbc:mysql://mysql-container:3306/jspDiary?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=root&password=berlydiaz&useUnicode=true&characterEncoding=UTF-8";
     }
 
     private static IDatabase getMySQLDatabase() {
