@@ -30,7 +30,7 @@ public class MySQL implements IDatabase {
             logger.log(System.Logger.Level.INFO, connection == null ? "Connection is null" : "Connection accepted");
 		}
         
-        return null;
+        return connection;
     }
 
     @Override
