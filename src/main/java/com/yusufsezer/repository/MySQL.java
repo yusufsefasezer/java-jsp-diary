@@ -21,8 +21,8 @@ public class MySQL implements IDatabase {
         Class.forName("com.mysql.cj.jdbc.Driver");
              
     	Properties prop = new Properties();
-	
-    	try (InputStream input = new FileInputStream("config.properties")) { 		
+ 	
+    	try (InputStream input = new FileInputStream(System.getProperty("user.dir") + "\\config.properties")) { 		
     	    prop.load(input);
     	    
     	    String containerName = prop.getProperty("db.containerName");

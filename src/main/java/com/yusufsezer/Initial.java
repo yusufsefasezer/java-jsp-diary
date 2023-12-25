@@ -1,10 +1,12 @@
 package com.yusufsezer;
 
-import java.io.FileNotFoundException;
 
 public class Initial {
 
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
+		
+		String currentDirectory = System.getProperty("user.dir");
+		System.out.println("Directorio actual: " + currentDirectory);
 		
 	}
 }
