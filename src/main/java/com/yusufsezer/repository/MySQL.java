@@ -31,14 +31,16 @@ public class MySQL implements IDatabase {
     	    String user = "root";
     	    String password = "db-container-psw";	    
     	    
-    	    String url = String.format("jdbc:mysql://%s:%s/%s", containerName, port, dataBase);
-    	   	    
+    	    String url = String.format("jdbc:mysql://%s:%s/%s", containerName, port, dataBase);   	      	    
+    	    
     	    return DriverManager.getConnection(url, user, password);
            
     	} catch (IOException e) {
     	    e.printStackTrace();
     	}
         
+    	System.out.println("Es null");
+    	
         return null;   
     }
 
