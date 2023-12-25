@@ -7,6 +7,7 @@ import com.yusufsezer.repository.MySQL;
 import com.yusufsezer.repository.UserRepository;
 import java.io.File;
 import java.io.IOException;
+import java.lang.System.Logger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
@@ -18,11 +19,12 @@ import javax.servlet.http.HttpSession;
 public class Helper {
 	
 	private Helper() {}
-
+	
+	public static final Logger logger = System.getLogger(Helper.class.getName());
 	public static final String VIEW_FOLDER = "WEB-INF/view";
 	public static final String NOT_FOUND = "notfound.jsp";
 	private static IDatabase dataBase = null;
-
+	
     public static void view(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String viewFile = getViewFile(request);
@@ -38,14 +40,16 @@ public class Helper {
                 : viewFileAttribute.toString();
     }
 
-    public static String getUrlDatabase() {   	 	      	
-    	return "jdbc:mysql://mysql-container:3306/jspDiary?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=root&password=berlydiaz&useUnicode=true&characterEncoding=UTF-8";
+    public static String getUrlDatabase() {   	 	      	  	
+    	
+    	return "jdbc:mysql://mysql-container:3306/jspDiary?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=root&password=db-psw&useUnicode=true&characterEncoding=UTF-8"; 
     }
 
     private static IDatabase getMySQLDatabase() {
         if (Helper.dataBase == null) {
             Helper.dataBase = new MySQL(Helper.getUrlDatabase());
         }
+
         return Helper.dataBase;
     }
 

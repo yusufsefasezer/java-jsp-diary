@@ -49,6 +49,5 @@ public class LoginServlet extends HttpServlet {
                 Helper.view(request, response);
             }
         }
-
     }
 }
