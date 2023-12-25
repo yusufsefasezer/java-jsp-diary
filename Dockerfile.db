@@ -1,6 +1,2 @@
 FROM mysql:latest
-
-ENV MYSQL_ROOT_PASSWORD=db-container-psw
-ENV MYSQL_DATABASE=jspDiary
-
-ADD db-java-jsp-diary.sql /docker-entrypoint-initdb.d/db-java-jsp-diary.sql
+COPY db-java-jsp-diary.sql /docker-entrypoint-initdb.d/db-java-jsp-diary.sql
