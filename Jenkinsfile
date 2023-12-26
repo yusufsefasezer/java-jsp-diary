@@ -67,23 +67,27 @@ pipeline {
             }
         }
 
-		/*
-        stage('Test') {
+        stage('Junit and Selenium Test') {
             steps {
                 bat 'mvn test'
             }
         }
-        */
+        
+        stage('jMeter Test') {
+            steps {
+                bat 'mvn jmeter:jmeter'
+            }
+        }   
     }
     
     post {        
-        /*
+        
         always {
     	    bat 'mvn surefire-report:report'
-            bat 'docker logout'
-            bat 'docker network rm my-network'
+            //bat 'docker logout'
+            //bat 'docker network rm my-network'
     	}
-        */
+        
         failure {
             echo 'Alguna prueba falló. Deteniendo el flujo...'
         }

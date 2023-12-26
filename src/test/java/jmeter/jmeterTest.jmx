@@ -15,10 +15,10 @@
         <stringProp name="checkQuery"></stringProp>
         <stringProp name="connectionAge">5000</stringProp>
         <stringProp name="dataSource">jdbcConfig</stringProp>
-        <stringProp name="dbUrl">jdbc:mysql://localhost:3306/jspDiary</stringProp>
+        <stringProp name="dbUrl">jdbc:mysql://mysql-container:3306/jspDiary</stringProp>
         <stringProp name="driver">com.mysql.jdbc.Driver</stringProp>
         <boolProp name="keepAlive">true</boolProp>
-        <stringProp name="password">matafurros9000</stringProp>
+        <stringProp name="password">jspDiary</stringProp>
         <stringProp name="poolMax">0</stringProp>
         <stringProp name="timeout">10000</stringProp>
         <stringProp name="transactionIsolation">DEFAULT</stringProp>
