@@ -60,6 +60,36 @@ Creado por [Yusuf SEZER](http://www.yusufsezer.com)
     - [Módulo de Conexión a la Base de Datos](#módulo-de-conexión-a-la-base-de-datos)
     - [Módulo de Seguridad](#módulo-de-seguridad)
     - [Módulo de Validación de Datos y Manejo de Errores](#módulo-de-validación-de-datos-y-manejo-de-errores)
+10. [IDE y Lenguaje](#ide-y-lenguaje)
+11. [SonarLint como extensión de Eclipse](#sonarlint-como-extensión-de-eclipse)
+12. [Reiniciar](#reiniciar)
+13. [Refactorización](#refactorización)
+    - [Archivo: DiaryRepository.java](#archivo-diaryrepositoryjava)
+    - [Archivo: UserRepository.java](#archivo-userrepositoryjava)
+    - [Archivo: Helper.java](#archivo-helperjava)
+14. [Commit y Push](#commit-y-push)
+15. [Pruebas Unitarias (JUnit)](#pruebas-unitarias-junit)
+16. [Lenguaje Ubicuo](#lenguaje-ubicuo)
+    - [Modelo (Package com.yusufsezer.model)](#modelo-package-comyusufsezermodel)
+    - [Repositorios (Package com.yusufsezer.repository)](#repositorios-package-comyusufsezerrepository)
+    - [Interfaz de Base de Datos (Package com.yusufsezer.contracts)](#interfaz-de-base-de-datos-package-comyusufsezercontracts)
+    - [Implementación de Base de Datos MySQL (Package com.yusufsezer.repository)](#implementación-de-base-de-datos-mysql-package-comyusufsezerrepository)
+    - [Modelo de dominio de la aplicación monolítica](#modelo-de-dominio-de-la-aplicación-monolítica)
+17. [Contextos delimitados para los modelos](#contextos-delimitados-para-los-modelos)
+    - [Módulo de Usuarios](#módulo-de-usuarios)
+    - [Módulo de Diarios](#módulo-de-diarios)
+    - [Módulo de Conexión a la Base de Datos](#módulo-de-conexión-a-la-base-de-datos)
+    - [Módulo de Seguridad](#módulo-de-seguridad)
+    - [Módulo de Validación de Datos y Manejo de Errores](#módulo-de-validación-de-datos-y-manejo-de-errores)
+18. [Dependencias entre Módulos](#dependencias-entre-módulos)
+19. [Refactorización a Microservicios](#refactorización-a-microservicios)
+20. [Contextos delimitados](#contextos-delimitados)
+    - [User Management Microservice](#user-management-microservice)
+    - [Diary Management Microservice](#diary-management-microservice)
+    - [Database Access Microservice](#database-access-microservice)
+    - [Security Microservice](#security-microservice)
+    - [Data Validation & Error Handling Microservice](#data-validation--error-handling-microservice)
+
 
 
 ## IDE Y lenguaje
@@ -206,7 +236,7 @@ El código se organiza para permitir operaciones como obtener usuarios, diarios,
 - Patrón de Repositorio: La estructura está organizada utilizando un patrón de repositorio para separar la lógica de acceso a datos de la lógica de negocio, lo que permite una mejor modularidad y mantenibilidad.
 - Seguridad y Manejo de Contraseñas: La aplicación utiliza una capa de seguridad para encriptar las contraseñas almacenadas en la base de datos, lo que es una buena práctica de seguridad.
 
-## Modulos
+## Módulos
 
 ### Módulo de Usuarios:
 
