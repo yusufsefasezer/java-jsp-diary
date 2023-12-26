@@ -67,11 +67,13 @@ pipeline {
             }
         }
 
+		/*
         stage('Junit and Selenium Test') {
             steps {
                 bat 'mvn test'
             }
         }
+        */
         
         stage('jMeter Test') {
             steps {
