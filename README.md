@@ -7,13 +7,13 @@ This project developed with Java EE Servlet, JSP, Maven, MySQL.
 
 ## Run
 
-You can run this app below command with Tomcat without Tomcat installation.
+Puede ejecutar esta aplicación a continuación con el comando Tomcat sin la instalación de Tomcat.
 
 ``
 mvn tomcat7:run
 ``
 
-**NOTE:** You have to make sure that Maven is installed.
+**NOTA:** Debes asegurarte de que Maven esté instalado.
 
 ## Screenshot
 
@@ -27,6 +27,6 @@ mvn tomcat7:run
 - [Home](screenshot/home.png)
 
 # License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details
+Este proyecto está bajo la licencia MIT. Consulte el archivo [LICENCIA](LICENSE) para obtener más detalles.
 
 Created by [Yusuf SEZER](http://www.yusufsezer.com)
