@@ -5,7 +5,7 @@ Este proyecto se desarrolló con Java EE Servlet, JSP, Maven, MySQL.
 
 ## [Descargar](https://github.com/yusufsefasezer/java-jsp-diary/archive/master.zip)
 
-## Ejecutar un programa
+## Ejecutar programa
 
 Puede ejecutar esta aplicación a continuación con el comando Tomcat sin la instalación de Tomcat.
 
