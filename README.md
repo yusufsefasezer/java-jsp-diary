@@ -30,3 +30,11 @@ mvn tomcat7:run
 Este proyecto está bajo la licencia MIT. Consulte el archivo [LICENCIA](LICENSE) para obtener más detalles.
 
 Creado por [Yusuf SEZER](http://www.yusufsezer.com)
+
+# IDE Y lenguaje
+- IDE: Eclipse 
+- lenguaje: Java
+
+
+
+
