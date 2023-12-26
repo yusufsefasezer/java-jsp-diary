@@ -1,11 +1,11 @@
 # Diario JSP de Java
 A simple MySQL diary application developed with Java EE JSP.
 
-This project developed with Java EE Servlet, JSP, Maven, MySQL.
+Este proyecto se desarrolló con Java EE Servlet, JSP, Maven, MySQL.
 
-## [Download](https://github.com/yusufsefasezer/java-jsp-diary/archive/master.zip)
+## [Descargar](https://github.com/yusufsefasezer/java-jsp-diary/archive/master.zip)
 
-## Run
+## Ejecutar un programa
 
 Puede ejecutar esta aplicación a continuación con el comando Tomcat sin la instalación de Tomcat.
 
@@ -15,7 +15,7 @@ mvn tomcat7:run
 
 **NOTA:** Debes asegurarte de que Maven esté instalado.
 
-## Screenshot
+## Capturas de pantallas
 
 - [Register](screenshot/register.png)
 - [Login](screenshot/login.png)
@@ -26,7 +26,7 @@ mvn tomcat7:run
 - [Profile](screenshot/profile.png)
 - [Home](screenshot/home.png)
 
-# License
+# Licencia
 Este proyecto está bajo la licencia MIT. Consulte el archivo [LICENCIA](LICENSE) para obtener más detalles.
 
-Created by [Yusuf SEZER](http://www.yusufsezer.com)
+Creado por [Yusuf SEZER](http://www.yusufsezer.com)
