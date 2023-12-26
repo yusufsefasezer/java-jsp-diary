@@ -142,3 +142,37 @@ El código se organiza para permitir operaciones como obtener usuarios, diarios,
 - Seguridad:
   - Encriptación de contraseñas almacenadas en la base de datos.
   - Protección contra ataques de inyección SQL u otras vulnerabilidades de seguridad.
+
+ ## Estructura de la aplicación monolítica - dominio
+
+ Las principales funcionalidades identificadas en esta estructura son:
+
+### Funcionalidades Principales:
+
+- Gestión de Usuarios:
+  - Crear Usuarios: La aplicación puede crear nuevos usuarios almacenando su información en la base de datos.
+  - Obtener Usuarios: Recuperar información de usuarios existentes de la base de datos.
+  - Actualizar Usuarios: Modificar información de usuarios existentes.
+  - Eliminar Usuarios: Eliminar usuarios de la base de datos.
+- Gestión de Diarios:
+  - Crear Diarios: Crear nuevas entradas de diario y asociarlas con un usuario.
+  - Obtener Diarios: Recuperar diarios existentes basados en ciertos criterios, como usuario específico o visibilidad.
+  - Actualizar Diarios: Modificar contenido, visibilidad o fecha de los diarios existentes.
+  - Eliminar Diarios: Eliminar entradas de diario.
+- Autenticación y Seguridad:
+  - Inicio de Sesión: Verificar credenciales de usuario para permitir el acceso a la aplicación.
+  - Protección de Datos: Encriptar contraseñas almacenadas y validar la integridad de los datos ingresados para mitigar riesgos de seguridad.
+- Conexión a la Base de Datos:
+  - Conectar a MySQL: Establecer una conexión con la base de datos MySQL.
+  - Ejecutar Consultas SQL: Realizar operaciones de consulta, actualización, inserción y eliminación en la base de datos utilizando sentencias SQL.
+- Manipulación de Modelos:
+  - Creación y Actualización de Modelos: Instanciar y modificar objetos User y Diary para reflejar los datos almacenados en la base de datos.
+- Validación de Datos y Control de Errores:
+  - Validación de Entrada: Asegurar que los datos ingresados sean válidos y cumplan con ciertos criterios.
+  - Manejo de Excepciones: Capturar y manejar errores para evitar fallos inesperados en la aplicación.
+  
+### Aspectos a Considerar:
+
+- Arquitectura Monolítica: La aplicación parece seguir un enfoque monolítico, lo que significa que todas estas funcionalidades están integradas dentro de una sola aplicación, lo que puede hacer que el mantenimiento y la escalabilidad sean más desafiantes a medida que la aplicación crece.
+- Patrón de Repositorio: La estructura está organizada utilizando un patrón de repositorio para separar la lógica de acceso a datos de la lógica de negocio, lo que permite una mejor modularidad y mantenibilidad.
+- Seguridad y Manejo de Contraseñas: La aplicación utiliza una capa de seguridad para encriptar las contraseñas almacenadas en la base de datos, lo que es una buena práctica de seguridad.
