@@ -38,6 +38,6 @@ Creado por [Yusuf SEZER](http://www.yusufsezer.com)
 ## SonarLint como extensión de Eclipse
 [Descargar por Marketplace - Eclipse](https://marketplace.eclipse.org/content/sonarlint#screenshots) 
 
-
+## Reiniciar
 
 
