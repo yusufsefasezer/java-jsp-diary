@@ -357,9 +357,9 @@ Los contextos delimitados identificados podrían ser candidatos para ser refacto
 
 En un enfoque de microservicios, cada contexto delimitado podría convertirse en un microservicio independiente, manteniendo su propia base de datos y lógica de negocio. Por ejemplo:
 
-**User Management:** Se convertiría en un microservicio encargado de la gestión de usuarios y la autenticación.
-**Diary Management:** Sería otro microservicio responsable de las operaciones de diarios.
-**Database Connection:** Podría ser una capa compartida o un servicio independiente que proporciona acceso a la base de datos a otros microservicios.
-**Security:** Podría ser un microservicio dedicado a la gestión de la seguridad y autenticación.
+- **User Management:** Se convertiría en un microservicio encargado de la gestión de usuarios y la autenticación.
+- **Diary Management:** Sería otro microservicio responsable de las operaciones de diarios.
+- **Database Connection:** Podría ser una capa compartida o un servicio independiente que proporciona acceso a la base de datos a otros microservicios.
+- **Security:** Podría ser un microservicio dedicado a la gestión de la seguridad y autenticación.
 
 La refactorización en microservicios puede brindar beneficios en términos de escalabilidad, mantenibilidad y despliegue independiente, pero también introduce complejidad en la gestión de múltiples servicios y su interacción. Es crucial evaluar cuidadosamente los límites del dominio y las interacciones entre módulos antes de tomar decisiones de refactorización.
