@@ -363,3 +363,55 @@ En un enfoque de microservicios, cada contexto delimitado podría convertirse en
 - **Security:** Podría ser un microservicio dedicado a la gestión de la seguridad y autenticación.
 
 La refactorización en microservicios puede brindar beneficios en términos de escalabilidad, mantenibilidad y despliegue independiente, pero también introduce complejidad en la gestión de múltiples servicios y su interacción. Es crucial evaluar cuidadosamente los límites del dominio y las interacciones entre módulos antes de tomar decisiones de refactorización.
+
+## Contextos delimitados
+
+### User Management Microservice:
+
+- Responsabilidades:
+   - Gestión de usuarios: creación, lectura, actualización, eliminación (CRUD).
+   - Autenticación de usuarios.
+- Componentes:
+   - UserAuthService: Lógica para la autenticación.
+   - UserRepository: Capa para la persistencia de usuarios.
+   - UserValidator: Validación de datos relacionados con usuarios.
+
+### Diary Management Microservice:
+
+- Responsabilidades:
+   - Gestión de diarios: creación, lectura, actualización, eliminación (CRUD).
+   - Control de visibilidad de diarios.
+- Componentes:
+   - DiaryService: Lógica para operaciones CRUD de diarios.
+   - DiaryRepository: Capa para la persistencia de diarios.
+   - DiaryVisibilityManager: Gestión de la visibilidad de los diarios.
+
+### Database Access Microservice:
+
+- Responsabilidades:
+   - Manejar la conexión y acceso a la base de datos.
+- Componentes:
+   - DatabaseConnectionService: Establecimiento y gestión de conexiones.
+   - SQLQueryExecutor: Ejecución de consultas SQL.
+
+### Security Microservice:
+
+- Responsabilidades:
+   - Gestión de la seguridad, incluida la encriptación y autenticación.
+- Componentes:
+   - EncryptionService: Manejo de la encriptación y desencriptación de contraseñas.
+   - AuthenticationService: Lógica para la autenticación de usuarios.
+
+### Data Validation & Error Handling Microservice:
+
+- Responsabilidades:
+   - Validación de datos antes del procesamiento.
+   - Manejo y registro de errores.
+- Componentes:
+   - DataValidationService: Validación de datos de entrada.
+   - ErrorHandlingService: Gestión de errores y excepciones.
+ 
+Estos microservicios se pueden diseñar y desplegar de manera independiente, cada uno con su propia lógica de negocio y base de datos. La comunicación entre ellos podría realizarse a través de API REST, mensajería, eventos, o algún otro mecanismo de comunicación.
+
+La separación en microservicios permite la escalabilidad y mantenibilidad independiente de cada componente, pero también introduce la necesidad de gestionar la comunicación entre los servicios y las posibles implicaciones en términos de latencia y complejidad en el manejo de múltiples sistemas distribuidos.
+
