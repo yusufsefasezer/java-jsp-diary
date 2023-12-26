@@ -35,7 +35,7 @@ Creado por [Yusuf SEZER](http://www.yusufsezer.com)
 
 1. [IDE y Lenguaje](#ide-y-lenguaje)
 2. [SonarLint como Extensión de Eclipse](#sonarlint-como-extensión-de-eclipse)
-3. [Reinicio](#reinicio)
+3. [Reinicio](#reiniciar)
 4. [Refactorización](#refactorización)
     - [Archivo: DiaryRepository.java](#archivo-diaryrepositoryjava)
     - [Archivo: UserRepository.java](#archivo-userrepositoryjava)
