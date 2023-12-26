@@ -100,12 +100,7 @@
 			                <goal>results</goal>
 			            </goals>
 			        </execution>
-			    </executions>	
-			    <configuration>
-	                <testFilesIncluded>
-		                <jMeterTestFile>jmeterTest.jmx</jMeterTestFile>
-	                </testFilesIncluded>
-                </configuration>	  			    
+			    </executions>		  			    
 			</plugin>        
         </plugins>
     </build>
