@@ -57,6 +57,12 @@ Una vez instalado, se reiniciará el Eclipse.
 
 ![](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A5.png)
 
+# Archivo: UserRepository.java
+
+![](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A6.png)
+
+![](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A7.png)
+
 ## Pruebas unitarias (Junit)
 
 ![](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A3.png)
