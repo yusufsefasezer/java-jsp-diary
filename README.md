@@ -100,4 +100,5 @@ Define los contratos IDatabase e IRepository que son implementados por las clase
 ### Implementación de Base de Datos MySQL (Package com.yusufsezer.repository):
 
 La clase MySQL implementa la interfaz IDatabase y establece la conexión con una base de datos MySQL específica utilizando JDBC (Java Database Connectivity).
+
 El código se organiza para permitir operaciones como obtener usuarios, diarios, agregar nuevos elementos, actualizar y eliminar registros en la base de datos MySQL utilizando sentencias SQL.
