@@ -31,9 +31,12 @@ Este proyecto está bajo la licencia MIT. Consulte el archivo [LICENCIA](LICENSE
 
 Creado por [Yusuf SEZER](http://www.yusufsezer.com)
 
-# IDE Y lenguaje
+## IDE Y lenguaje
 - IDE: Eclipse 
 - lenguaje: Java
+
+## SonarLint como extensión de Eclipse
+[Descargar por Marketplace - Eclipse](https://marketplace.eclipse.org/content/sonarlint#screenshots) 
 
 
 
