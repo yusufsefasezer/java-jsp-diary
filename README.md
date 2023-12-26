@@ -177,3 +177,5 @@ El código se organiza para permitir operaciones como obtener usuarios, diarios,
 - Arquitectura Monolítica: La aplicación parece seguir un enfoque monolítico, lo que significa que todas estas funcionalidades están integradas dentro de una sola aplicación, lo que puede hacer que el mantenimiento y la escalabilidad sean más desafiantes a medida que la aplicación crece.
 - Patrón de Repositorio: La estructura está organizada utilizando un patrón de repositorio para separar la lógica de acceso a datos de la lógica de negocio, lo que permite una mejor modularidad y mantenibilidad.
 - Seguridad y Manejo de Contraseñas: La aplicación utiliza una capa de seguridad para encriptar las contraseñas almacenadas en la base de datos, lo que es una buena práctica de seguridad.
+
+``
