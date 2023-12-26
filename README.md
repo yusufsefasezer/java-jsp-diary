@@ -51,7 +51,7 @@ Una vez instalado, se reiniciará el Eclipse.
 
 ![](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A2.png)
 
-### Archivo: DiaryRepository.java
+# Archivo: DiaryRepository.java
 
 ![](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A4.png)
 
