@@ -40,6 +40,6 @@ Creado por [Yusuf SEZER](http://www.yusufsezer.com)
 
 ## Reiniciar
 
-![Texto alternativo](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A1.png)
+![Una vez instalado, se reiniciará el Eclipse.](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A1.png)
 
 
