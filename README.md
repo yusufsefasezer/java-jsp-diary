@@ -104,6 +104,7 @@ La clase MySQL implementa la interfaz IDatabase y establece la conexión con una
 El código se organiza para permitir operaciones como obtener usuarios, diarios, agregar nuevos elementos, actualizar y eliminar registros en la base de datos MySQL utilizando sentencias SQL.
 
 ## Modelo de dominio de la aplicación monolítica
+``
 
 ### Entidades Principales:
 #### User (Usuario):
