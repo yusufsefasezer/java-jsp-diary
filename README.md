@@ -134,17 +134,11 @@ El código se organiza para permitir operaciones como obtener usuarios, diarios,
 - Gestión de Diarios:
   - Crear, leer, actualizar y eliminar (CRUD) diarios para un usuario específico.
   - Control de la visibilidad de los diarios (públicos o privados).
-
-### Relaciones Usuario-Diario:
-
-- Establecer relaciones de pertenencia entre los diarios y los usuarios.
-- Garantizar que los diarios se asocien correctamente con el usuario propietario.
-  
-### Validación de Datos:
-
-- Validar la integridad de los datos ingresados, como direcciones de correo electrónico válidas, contraseñas seguras, etc.
-  
-### Seguridad:
-
-- Encriptación de contraseñas almacenadas en la base de datos.
-- Protección contra ataques de inyección SQL u otras vulnerabilidades de seguridad.
+- Relaciones Usuario-Diario:
+  - Establecer relaciones de pertenencia entre los diarios y los usuarios.
+  - Garantizar que los diarios se asocien correctamente con el usuario propietario.
+- Validación de Datos:
+  - Validar la integridad de los datos ingresados, como direcciones de correo electrónico válidas, contraseñas seguras, etc.
+- Seguridad:
+  - Encriptación de contraseñas almacenadas en la base de datos.
+  - Protección contra ataques de inyección SQL u otras vulnerabilidades de seguridad.
