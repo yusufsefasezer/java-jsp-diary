@@ -34,13 +34,33 @@ Creado por [Yusuf SEZER](http://www.yusufsezer.com)
 ## Índice
 
 1. [IDE y Lenguaje](#ide-y-lenguaje)
-2. [SonarLint como Extensión de Eclipse](#sonarlint-como-extensión-de-eclipse)
-3. [Reinicio](#reiniciar)
+2. [SonarLint como extensión de Eclipse](#sonarlint-como-extensión-de-eclipse)
+3. [Reiniciar](#reiniciar)
 4. [Refactorización](#refactorización)
-    - [Archivo: DiaryRepository.java](#archivo-diaryrepositoryjava)
-    - [Archivo: UserRepository.java](#archivo-userrepositoryjava)
-    - [Archivo: Helper.java](#archivo-helperjava)
+   1. [Archivo: DiaryRepository.java](#archivo-diaryrepositoryjava)
+   2. [Archivo: UserRepository.java](#archivo-userrepositoryjava)
+   3. [Archivo: Helper.java](#archivo-helperjava)
 5. [Commit y Push](#commit-y-push)
+6. [Pruebas Unitarias (JUnit)](#pruebas-unitarias-junit)
+7. [Lenguaje Ubicuo](#lenguaje-ubicuo)
+   1. [Modelo (Package com.yusufsezer.model)](#modelo-package-comyusufsezermodel)
+   2. [Repositorios (Package com.yusufsezer.repository)](#repositorios-package-comyusufsezerrepository)
+   3. [Interfaz de Base de Datos (Package com.yusufsezer.contracts)](#interfaz-de-base-de-datos-package-comyusufsezercontracts)
+   4. [Implementación de Base de Datos MySQL (Package com.yusufsezer.repository)](#implementación-de-base-de-datos-mysql-package-comyusufsezerrepository)
+   5. [Modelo de dominio de la aplicación monolítica](#modelo-de-dominio-de-la-aplicación-monolítica)
+      1. [Entidades Principales](#entidades-principales)
+         - [User (Usuario)](#user-usuario)
+         - [Diary (Diario)](#diary-diario)
+      2. [Reglas de Negocio Potenciales](#reglas-de-negocio-potenciales)
+   6. [Estructura de la aplicación monolítica - dominio](#estructura-de-la-aplicación-monolítica---dominio)
+      - [Funcionalidades Principales](#funcionalidades-principales)
+      - [Aspectos a Considerar](#aspectos-a-considerar)
+   7. [Módulos](#módulos)
+      - [Módulo de Usuarios](#módulo-de-usuarios)
+      - [Módulo de Diarios](#módulo-de-diarios)
+      - [Módulo de Conexión a la Base de Datos](#módulo-de-conexión-a-la-base-de-datos)
+      - [Módulo de Seguridad](#módulo-de-seguridad)
+      - [Módulo de Validación de Datos y Manejo de Errores](#módulo-de-validación-de-datos-y-manejo-de-errores)
 
 
 ## IDE Y lenguaje
@@ -226,5 +246,5 @@ El código se organiza para permitir operaciones como obtener usuarios, diarios,
   
 Aplicar el lenguaje ubicuo implica nombrar los módulos de manera que su propósito sea claro y comprensible para cualquier persona que trabaje en el proyecto. Los nombres deben reflejar la funcionalidad del módulo sin entrar en detalles de implementación específicos.
 
-Por ejemplo, se utilizan términos generales como "UserManagementModule" para indicar el manejo de usuarios y sus operaciones, "DiaryManagementModule" para el manejo de diarios y sus operaciones,
+Por ejemplo, se utilizan términos generales como "UserManagementModule" para indicar el manejo de usuarios y sus operaciones, "DiaryManagementModule" para el manejo de diarios y sus operaciones.
 
