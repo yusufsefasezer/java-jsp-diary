@@ -168,11 +168,51 @@ El código se organiza para permitir operaciones como obtener usuarios, diarios,
 - Manipulación de Modelos:
   - Creación y Actualización de Modelos: Instanciar y modificar objetos User y Diary para reflejar los datos almacenados en la base de datos.
 - Validación de Datos y Control de Errores:
-  - Validación de Entrada: Asegurar que los datos ingresados sean válidos y cumplan con ciertos criterios.
-  - Manejo de Excepciones: Capturar y manejar errores para evitar fallos inesperados en la aplicación.
   
 ### Aspectos a Considerar:
 
 - Arquitectura Monolítica: La aplicación parece seguir un enfoque monolítico, lo que significa que todas estas funcionalidades están integradas dentro de una sola aplicación, lo que puede hacer que el mantenimiento y la escalabilidad sean más desafiantes a medida que la aplicación crece.
 - Patrón de Repositorio: La estructura está organizada utilizando un patrón de repositorio para separar la lógica de acceso a datos de la lógica de negocio, lo que permite una mejor modularidad y mantenibilidad.
 - Seguridad y Manejo de Contraseñas: La aplicación utiliza una capa de seguridad para encriptar las contraseñas almacenadas en la base de datos, lo que es una buena práctica de seguridad.
+
+## Modulos
+
+### Módulo de Usuarios:
+
+- Funcionalidades:
+  - Creación, lectura, actualización y eliminación de usuarios.
+  - Autenticación de usuarios.
+- Lenguaje Ubicuo: UserManagementModule, UserAuthenticationModule
+  
+#### Módulo de Diarios:
+
+- Funcionalidades:
+  - Gestión de entradas de diario (crear, leer, actualizar, eliminar).
+  - Obtener diarios basados en criterios específicos (usuario, visibilidad).
+- Lenguaje Ubicuo: DiaryManagementModule
+  
+### Módulo de Conexión a la Base de Datos:
+
+- Funcionalidades:
+  - Establecer conexión con MySQL.
+  - Ejecutar consultas SQL.
+- Lenguaje Ubicuo: DatabaseConnectionModule
+  
+### Módulo de Seguridad:
+
+- Funcionalidades:
+  - Verificar credenciales de inicio de sesión.
+  - Encriptar y manejar contraseñas de usuarios.
+- Lenguaje Ubicuo: SecurityModule
+  
+### Módulo de Validación de Datos y Manejo de Errores:
+
+- Funcionalidades:
+  - Validar datos de entrada.
+  - Manejar excepciones y errores.
+- Lenguaje Ubicuo: DataValidationModule, ErrorHandlingModule
+  
+Aplicar el lenguaje ubicuo implica nombrar los módulos de manera que su propósito sea claro y comprensible para cualquier persona que trabaje en el proyecto. Los nombres deben reflejar la funcionalidad del módulo sin entrar en detalles de implementación específicos.
+
+Por ejemplo, se utilizan términos generales como "UserManagementModule" para indicar el manejo de usuarios y sus operaciones, "DiaryManagementModule" para el manejo de diarios y sus operaciones,
+
