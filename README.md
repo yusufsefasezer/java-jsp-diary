@@ -43,4 +43,11 @@ Creado por [Yusuf SEZER](http://www.yusufsezer.com)
 Una vez instalado, se reiniciará el Eclipse.
 ![Una vez instalado, se reiniciará el Eclipse.](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A1.png)
 
+## Refactorización
+
+- Clonar el proyecto de software a ser refactorizado del repositorio principal en GitHub
+- Abrir el proyecto de software a ser refactorizado.
+- Construir el proyecto: Si todo va bien, podrá ver los resultados de la compilación y los warnings en la ventana View/Problems de su IDE.
+
+[](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A2.png)
 
