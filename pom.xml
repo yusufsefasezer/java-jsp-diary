@@ -11,8 +11,9 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jmeterScript>test1.jmx</jmeterScript>
 	</properties>
-
+	
     <dependencies>		
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -100,7 +101,12 @@
 			                <goal>results</goal>
 			            </goals>
 			        </execution>
-			    </executions>		  			    
+			    </executions>	
+                <configuration>
+                    <testFilesIncluded>
+                        <jMeterTestFile>${jmeterScript}</jMeterTestFile>
+                    </testFilesIncluded>
+                </configuration>  			    
 			</plugin>        
         </plugins>
     </build>

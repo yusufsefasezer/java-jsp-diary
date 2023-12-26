@@ -77,19 +77,20 @@ pipeline {
         
         stage('jMeter Test') {
             steps {
-                bat 'mvn jmeter:jmeter'
+                bat 'mvn -DjmeterScript=jmeterTest.jmx verify'
             }
         }   
     }
     
     post {        
         
+        /*
         always {
     	    bat 'mvn surefire-report:report'
             //bat 'docker logout'
             //bat 'docker network rm my-network'
     	}
-        
+        */
         failure {
             echo 'Alguna prueba falló. Deteniendo el flujo...'
         }
