@@ -105,7 +105,6 @@ El código se organiza para permitir operaciones como obtener usuarios, diarios,
 
 ## Modelo de dominio de la aplicación monolítica
 
-
 ### Entidades Principales:
 #### User (Usuario):
 
