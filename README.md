@@ -248,3 +248,76 @@ Aplicar el lenguaje ubicuo implica nombrar los módulos de manera que su propós
 
 Por ejemplo, se utilizan términos generales como "UserManagementModule" para indicar el manejo de usuarios y sus operaciones, "DiaryManagementModule" para el manejo de diarios y sus operaciones.
 
+## Contextos delimitados para los modelos
+
+estableciendo modelos con responsabilidades específicas dentro de cada contexto.
+
+### Módulo de Usuarios:
+
+Contexto delimitado: User Management
+- Entidades:
+   - User: Representa la entidad de usuario con atributos como id, firstName, lastName, email, password.
+- Objetos de Valor:
+   - Ninguno identificado en el contexto delimitado de Usuarios.
+- Agregados:
+   - Ninguno identificado en este contexto específico, ya que la entidad de usuario puede considerarse como una entidad independiente.
+- Servicios de Dominio:
+UserAuthService: Responsable de la autenticación de usuarios.
+   - UserRepository: Encargado de la gestión de usuarios en la base de datos (CRUD operations).
+   - UserValidator: Validación de datos relacionados con usuarios.
+
+### Módulo de Diarios:
+
+Contexto delimitado: Diary Management
+- Entidades:
+   - Diary: Representa la entidad de diario con atributos como id, userId, dateOfDiary, content, visibility.
+- Objetos de Valor:
+   - Ninguno identificado en este contexto específico.
+- Agregados:
+   - Ninguno identificado directamente, ya que la entidad de diario podría considerarse como independiente.
+- Servicios de Dominio:
+   - DiaryService: Gestiona las operaciones CRUD relacionadas con los diarios.
+   - DiaryRepository: Maneja la persistencia de diarios en la base de datos.
+   - DiaryVisibilityManager: Controla la visibilidad de los diarios.
+
+### Módulo de Conexión a la Base de Datos:
+
+Contexto delimitado: Database Connection
+- Entidades:
+   - No se consideran entidades en este contexto específico.
+- Objetos de Valor:
+   - No aplicable en este contexto.
+- Agregados:
+   - No se identifican agregados en este contexto.
+- Servicios de Dominio:
+   - DatabaseConnectionService: Establece y administra la conexión con la base de datos.
+   - SQLQueryExecutor: Ejecuta consultas SQL en la base de datos.
+
+### Módulo de Seguridad:
+
+Contexto delimitado: Security
+- Entidades:
+   - No se consideran entidades en este contexto específico.
+- Objetos de Valor:
+   - No aplicable en este contexto.
+- Agregados:
+   - No se identifican agregados en este contexto.
+- Servicios de Dominio:
+   - EncryptionService: Maneja la encriptación y desencriptación de contraseñas.
+   - AuthenticationService: Gestiona la autenticación de usuarios.
+
+### Módulo de Validación de Datos y Manejo de Errores:
+
+Contexto delimitado: Data Validation & Error Handling
+- Entidades:
+   - No se consideran entidades en este contexto específico.
+- Objetos de Valor:
+   - No aplicable en este contexto.
+- Agregados:
+   - No se identifican agregados en este contexto.
+- Servicios de Dominio:
+   - DataValidationService: Valida la integridad de los datos antes de su procesamiento.
+   - ErrorHandlingService: Maneja la gestión y registro de errores en la aplicación.
+
+Estos contextos delimitados representan áreas específicas dentro del dominio de la aplicación y establecen modelos con responsabilidades claras para cada uno de los módulos identificados, ayudando a mantener un diseño modular y una distribución clara de las responsabilidades dentro de la aplicación monolítica.
+
