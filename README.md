@@ -79,4 +79,25 @@ Una vez instalado, se reiniciará el Eclipse.
 
 ![](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A3.png)
 
+## Lenguaje ubicuo
 
+Los paquetes y clases que has proporcionado sugieren un patrón de diseño de repositorio para la interacción con entidades de usuario y diario, además de una implementación de base de datos MySQL.
+
+El código se estructura en varios paquetes:
+
+### Modelo (Package com.yusufsezer.model):
+
+Contiene las clases User y Diary, que representan entidades de usuario y diario respectivamente. Cada clase tiene atributos que corresponden a las columnas de las tablas en la base de datos.
+
+### Repositorios (Package com.yusufsezer.repository):
+
+UserRepository y DiaryRepository son clases que implementan la interfaz IRepository. Estas clases se encargan de interactuar con la base de datos para realizar operaciones CRUD (crear, leer, actualizar, eliminar) en las entidades de usuario y diario.
+
+### Interfaz de Base de Datos (Package com.yusufsezer.contracts):
+
+Define los contratos IDatabase e IRepository que son implementados por las clases MySQL, UserRepository y DiaryRepository. Estos contratos proporcionan métodos genéricos para la manipulación de datos y la conexión a la base de datos.
+
+### Implementación de Base de Datos MySQL (Package com.yusufsezer.repository):
+
+La clase MySQL implementa la interfaz IDatabase y establece la conexión con una base de datos MySQL específica utilizando JDBC (Java Database Connectivity).
+El código se organiza para permitir operaciones como obtener usuarios, diarios, agregar nuevos elementos, actualizar y eliminar registros en la base de datos MySQL utilizando sentencias SQL.
