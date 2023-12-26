@@ -40,6 +40,6 @@ Creado por [Yusuf SEZER](http://www.yusufsezer.com)
 
 ## Reiniciar
 
-![Texto alternativo]([URL_de_la_imagen](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A1.png)https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A1.png)
+![Texto alternativo](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A1.png)
 
 
