@@ -33,11 +33,14 @@ Creado por [Yusuf SEZER](http://www.yusufsezer.com)
 
 ## Índice
 
-1. [IDE Y lenguaje](##IDEYlenguaje)
-2. [Instalación](#instalación)
-3. [Uso](#uso)
-4. [Contribución](#contribución)
-5. [Licencia](#licencia)
+1. [IDE y Lenguaje](#ide-y-lenguaje)
+2. [SonarLint como Extensión de Eclipse](#sonarlint-como-extensión-de-eclipse)
+3. [Reinicio](#reinicio)
+4. [Refactorización](#refactorización)
+    - [Archivo: DiaryRepository.java](#archivo-diaryrepositoryjava)
+    - [Archivo: UserRepository.java](#archivo-userrepositoryjava)
+    - [Archivo: Helper.java](#archivo-helperjava)
+5. [Commit y Push](#commit-y-push)
 
 
 ## IDE Y lenguaje
