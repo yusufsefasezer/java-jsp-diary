@@ -1,5 +1,5 @@
 # Diario JSP de Java
-A simple MySQL diary application developed with Java EE JSP.
+Una sencilla aplicación de diario MySQL desarrollada con Java EE JSP.
 
 Este proyecto se desarrolló con Java EE Servlet, JSP, Maven, MySQL.
 
