@@ -10,26 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MydiariesServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	@Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+    	
         User loginUser = Helper.getLoginUser(request);
         request.setAttribute("viewFile", "mydiaries.jsp");
         request.setAttribute("pageTitle", "My diaries");
+        request.setAttribute("diaryList", Helper.diaryRepository().getAllByUserId(loginUser.getId(), true));
+        
         try {
-            request.setAttribute("diaryList", Helper.diaryRepository()
-                    .getAllByUserId(loginUser.getId(), true));
-            Helper.view(request, response);
-        } catch (FileNotFoundException e) {
-            request.setAttribute("errorMessage", "File not found");
-            // You can also log the exception or perform any other necessary actions
-            // Handle the ServletException
-            throw new ServletException("Error occurred while processing the request", e);
-        } catch (IOException e) {
-            request.setAttribute("errorMessage", "IO error occurred");
-            // You can also log the exception or perform any other necessary actions
-            // Handle the IOException
-            throw e;
-        }
+			Helper.view(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
     }
 }
