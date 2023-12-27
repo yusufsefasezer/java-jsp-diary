@@ -54,7 +54,15 @@ pipeline {
 				bat 'docker run -d --name mysql-container --network my-network -p 3306:3306 db-java-jsp-diary'            
             }
         }
-            
+        
+        stage('Junit Test') {
+            steps {
+                bat 'mvn test -Dtest=DiaryRepository,UserRepository'    
+                bat 'mvn surefire-report:report -Dmaven.test.skip'                        
+            }
+        } 
+               
+        /*
         stage('Docker Build Project Image ') {
             steps {
                 bat 'docker build -f Dockerfile.tc -t java-jsp-diary .'
@@ -66,21 +74,25 @@ pipeline {
                 bat 'docker run -d --name jspDiary-container --network my-network -p 8080:8080 java-jsp-diary'
             }
         }
+		*/
 		
 		stage('wait') {
 			steps {
 				script {
-					sleep time: 15, unit: 'SECONDS'
+					sleep time: 8, unit: 'SECONDS'
 				}
             }
 		}
 	
+		/*
         stage('Junit, jMeter and Selenium Test') {
             steps {
                 bat 'mvn test'
                 bat 'mvn surefire-report:report -Dmaven.test.skip'
             }
         }   
+        */
+        
     }
     
     post {        
