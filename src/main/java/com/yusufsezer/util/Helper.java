@@ -44,8 +44,7 @@ public class Helper {
     }
 
 	public static String getUrlDatabase() {   	
-		
-		/*
+
     	Properties prop = new Properties();
     	String url = null;
     	
@@ -67,9 +66,8 @@ public class Helper {
     	} catch (IOException e) {
     	    e.printStackTrace();
     	}
-    	*/
     	
-    	return "jdbc:mysql://mysql-container:3306/jspDiary?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&user=root&password=db-psw&useUnicode=true&characterEncoding=UTF-8"; 
+    	return url; 	 	
     }
 
     private static IDatabase getMySQLDatabase() {

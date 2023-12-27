@@ -72,12 +72,15 @@
 						</goals>
 					</execution>
 				</executions>
-			</plugin>	  
+			</plugin>	 
+			 
 			<plugin>
 		        <groupId>org.sonarsource.scanner.maven</groupId>
 		        <artifactId>sonar-maven-plugin</artifactId>
 		        <version>3.7.0.1746</version>
-			</plugin>                  
+			</plugin>  
+			
+			                
 			<plugin>
 			    <groupId>com.lazerycode.jmeter</groupId>
 			    <artifactId>jmeter-maven-plugin</artifactId>
@@ -108,7 +111,21 @@
                     <testFilesIncluded>
                         <jMeterTestFile>jmeterTest.jmx</jMeterTestFile>
                     </testFilesIncluded>
-                </configuration>  			    
+                </configuration>  
+                
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-compiler-plugin</artifactId>
+                        <version>3.10.0</version>
+                    </dependency>
+                    <dependency>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>3.0.0-M5</version>
+                    </dependency>
+                </dependencies>
+                               			    
 			</plugin>        
         </plugins>
     </build>

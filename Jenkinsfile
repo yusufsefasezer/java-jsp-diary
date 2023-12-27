@@ -55,13 +55,15 @@ pipeline {
             }
         }
         
+
+		/*
         stage('Junit Test') {
             steps {
                 bat 'mvn test -Dtest=DiaryRepository,UserRepository'                          
             }
         } 
-               
-        /*
+        */
+
         stage('Docker Build Project Image ') {
             steps {
                 bat 'docker build -f Dockerfile.tc -t java-jsp-diary .'
@@ -73,8 +75,7 @@ pipeline {
                 bat 'docker run -d --name jspDiary-container --network my-network -p 8080:8080 java-jsp-diary'
             }
         }
-		*/
-		
+	
 		stage('wait') {
 			steps {
 				script {
@@ -83,15 +84,11 @@ pipeline {
             }
 		}
 	
-		/*
         stage('Junit, jMeter and Selenium Test') {
             steps {
-                bat 'mvn test'
-                bat 'mvn surefire-report:report -Dmaven.test.skip'
+                bat 'mvn clean test'
             }
-        }   
-        */
-        
+        }                   
     }
     
     post {        
