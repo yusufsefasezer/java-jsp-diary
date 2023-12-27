@@ -6,10 +6,6 @@ pipeline {
         maven 'maven 3.9.6'
     }
     
-    environment {
-        JAVA_OPTS = '-Djava.net.preferIPv4Stack=true'
-    }
-     
     stages {
         
         stage('Clone') {
@@ -72,8 +68,10 @@ pipeline {
         }
 		
 		stage('wait') {
-			script {
-            	sleep time: 15, unit: 'SECONDS'
+			steps {
+				script {
+					sleep time: 15, unit: 'SECONDS'
+				}
             }
 		}
 	
