@@ -118,6 +118,7 @@ Una vez instalado, se reiniciará el Eclipse.
 
 ![](https://github.com/Berly01/java-jsp-diary/blob/Jhonatan/screenshot/screenshot%20-%20eclipse/A3.png)
 
+## Conversión de arquitectura monolítica a microservicios
 ## Lenguaje ubicuo
 
 Los paquetes y clases que has proporcionado sugieren un patrón de diseño de repositorio para la interacción con entidades de usuario y diario, además de una implementación de base de datos MySQL.
