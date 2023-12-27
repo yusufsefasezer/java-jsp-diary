@@ -81,12 +81,12 @@ pipeline {
             }
         }
             
-        stage('Push image to hub') {
+        stage('Push image to Docker Hub') {
             steps {
             	bat 'docker tag java-jsp-diary berly01/java-jsp-diary'
-            	bat 'docker tag db-java-jsp-diary berly01/java-jsp-diary'
+            	bat 'docker tag db-java-jsp-diary berly01/db-java-jsp-diary'
             	bat 'docker push berly01/java-jsp-diary'
-                bat 'docker push berly01/java-jsp-diary'
+                bat 'docker push berly01/db-java-jsp-diary'
             }
         }       
     }
