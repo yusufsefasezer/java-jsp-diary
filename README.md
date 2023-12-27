@@ -1,4 +1,4 @@
-## Solucionando errores de mantenibilidad en login.java y register.java:
+## Solucionando errores de mantenibilidad en LoginServlet.java y RegisterServlet.java:
 
 ![bandicam 2023-12-26 22-33-15-038](https://github.com/Berly01/java-jsp-diary/assets/104176510/18328425-5460-4ef2-8d4f-06f5104d8abd)
 ![bandicam 2023-12-26 22-33-39-434](https://github.com/Berly01/java-jsp-diary/assets/104176510/2bc7c3c8-6bff-4f7a-9f34-232cdf96c035)
