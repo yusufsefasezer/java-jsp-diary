@@ -75,18 +75,12 @@ pipeline {
             }
 		}
 	
-        stage('Junit and Selenium Test') {
+        stage('Junit, jMeter and Selenium Test') {
             steps {
-                bat 'mvn test -Dtest=SeleniumTest'
+                bat 'mvn test'
                 bat 'mvn surefire-report:report -Dmaven.test.skip'
             }
-        }
-        
-        stage('jMeter Test') {
-            steps {
-                bat 'mvn -DjmeterScript=jmeterTest.jmx -Dmaven.test.skip'
-            }
-        }     
+        }   
     }
     
     post {        

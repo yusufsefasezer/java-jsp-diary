@@ -91,6 +91,7 @@
 			        </execution>
 			        <execution>
 			            <id>jmeter-tests</id>
+			            <phase>test</phase>
 			            <goals>
 			                <goal>jmeter</goal>
 			            </goals>
@@ -103,8 +104,9 @@
 			        </execution>
 			    </executions>	
                 <configuration>
+					<generateReports>true</generateReports>
                     <testFilesIncluded>
-                        <jMeterTestFile>${jmeterScript}</jMeterTestFile>
+                        <jMeterTestFile>jmeterTest.jmx</jMeterTestFile>
                     </testFilesIncluded>
                 </configuration>  			    
 			</plugin>        
