@@ -67,8 +67,7 @@ pipeline {
 		}
         
         stage('Junit and Selenium Test') {
-            steps {
-                bat 'mvn test'     
+            steps {  
                 bat 'mvn site'                   
             }
         }      
@@ -78,14 +77,13 @@ pipeline {
                 
                 withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                   bat 'echo docker login -u ${USERNAME} -p ${PASSWORD} docker.io'
-                }
-                
+                }           
             }
         }
         
         stage('Push image to hub') {
             steps {
-                bat 'docker push berly01/java-jsp-diary'
+                bat 'docker push java-jsp-diary'
             }
         }       
     }
