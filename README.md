@@ -71,6 +71,19 @@ Una vez instalado, se reiniciará el Eclipse.
 ![updated_login](https://github.com/Berly01/java-jsp-diary/assets/104176510/a4f5c8c7-6718-409a-85c6-81c8a67bbf72)
 ![updated_register](https://github.com/Berly01/java-jsp-diary/assets/104176510/eb624c47-f16b-4bb8-9459-e3939728c246)
 =======
+Clean code doesn’t contain duplication.:
+Despues de hacer un cambio para las excepciones
+![image](https://github.com/Berly01/java-jsp-diary/assets/104178976/b5a68f50-2cf4-4448-b9da-539cdad1826f)
+
+Tenia que juntar ambos catch ,porque al inicio los tenia separados y eso contaba como
+duplicado
+Intentionality issue:
+![image](https://github.com/Berly01/java-jsp-diary/assets/104178976/0f91d6b8-6a47-4009-a750-bf55eeb0e11b)
+![image](https://github.com/Berly01/java-jsp-diary/assets/104178976/ea11bc89-687b-4bf5-8de4-ea79e1bc2f12)
+
+Hay que redifinir las variables
+
+![image](https://github.com/Berly01/java-jsp-diary/assets/104178976/daeaec0b-6a8d-429d-b918-57f226ef8d12)
 
 
 =======
