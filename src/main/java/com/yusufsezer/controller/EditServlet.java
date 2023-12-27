@@ -1,5 +1,5 @@
-package com.yusufsezer.controller;
 
+package com.yusufsezer.controller;
 import com.yusufsezer.model.Diary;
 import com.yusufsezer.util.Helper;
 import java.io.IOException;
@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 
 public class EditServlet extends HttpServlet {
 
+    private static final String REDIRECT_URL = "mydiaries";
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -21,13 +23,13 @@ public class EditServlet extends HttpServlet {
 
         if (foundDiary != null) {
             request.setAttribute("viewFile", "edit.jsp");
-            DateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+            DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
             request.setAttribute("pageTitle", "Edit diary / "
                     + sdf.format(foundDiary.getDateOfDiary()));
             request.setAttribute("diary", foundDiary);
             Helper.view(request, response);
         } else {
-            response.sendRedirect("mydiaries");
+            response.sendRedirect(REDIRECT_URL);
         }
 
     }
@@ -49,18 +51,19 @@ public class EditServlet extends HttpServlet {
                     .update(foundDiary.getId(), foundDiary);
 
             if (editResult != null) {
-                response.sendRedirect("mydiaries");
+                response.sendRedirect(REDIRECT_URL);
             } else {
                 request.setAttribute("viewFile", "edit.jsp");
-                DateFormat sdf = new SimpleDateFormat("YYYY-MM-dd");
+                DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
                 request.setAttribute("pageTitle", "Edit diary / "
                         + sdf.format(foundDiary.getDateOfDiary()));
                 request.setAttribute("message", "Something went wrong");
                 Helper.view(request, response);
             }
         } else {
-            response.sendRedirect("mydiaries");
+            response.sendRedirect(REDIRECT_URL);
         }
 
     }
+    
 }

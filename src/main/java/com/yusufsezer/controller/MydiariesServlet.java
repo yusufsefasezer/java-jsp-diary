@@ -16,8 +16,20 @@ public class MydiariesServlet extends HttpServlet {
         User loginUser = Helper.getLoginUser(request);
         request.setAttribute("viewFile", "mydiaries.jsp");
         request.setAttribute("pageTitle", "My diaries");
-        request.setAttribute("diaryList", Helper.diaryRepository()
-                .getAllByUserId(loginUser.getId(), true));
-        Helper.view(request, response);
+        try {
+            request.setAttribute("diaryList", Helper.diaryRepository()
+                    .getAllByUserId(loginUser.getId(), true));
+            Helper.view(request, response);
+        } catch (FileNotFoundException e) {
+            request.setAttribute("errorMessage", "File not found");
+            // You can also log the exception or perform any other necessary actions
+            // Handle the ServletException
+            throw new ServletException("Error occurred while processing the request", e);
+        } catch (IOException e) {
+            request.setAttribute("errorMessage", "IO error occurred");
+            // You can also log the exception or perform any other necessary actions
+            // Handle the IOException
+            throw e;
+        }
     }
 }
