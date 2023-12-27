@@ -106,8 +106,9 @@
 			            </goals>
 			        </execution>
 			    </executions>	
-                <configuration>
+                <configuration>					
 					<generateReports>true</generateReports>
+					<testFilesDirectory>${project.basedir}/src/test/jmeter</testFilesDirectory>
                     <testFilesIncluded>
                         <jMeterTestFile>jmeterTest.jmx</jMeterTestFile>
                     </testFilesIncluded>
