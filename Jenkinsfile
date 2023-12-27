@@ -36,25 +36,25 @@ pipeline {
      
         stage('Build Docker DataBase Image') {
             steps {
-                bat 'docker build -f Dockerfile.db -t db-java-jsp-diary .'
+                bat 'docker build -f Dockerfile.db -t berly01/db-java-jsp-diary:latest .'
             }
         }
         
         stage('Run Docker DataBase Image') {
             steps {           
-				bat 'docker run -d --name mysql-container --network my-network -p 3306:3306 db-java-jsp-diary'            
+				bat 'docker run -d --name mysql-container --network my-network -p 3306:3306 berly01/db-java-jsp-diary'            
             }
         }
          
         stage('Docker Build Project Image ') {
             steps {
-                bat 'docker build -f Dockerfile.tc -t java-jsp-diary .'
+                bat 'docker build -f Dockerfile.tc -t berly01/java-jsp-diary:latest .'
             }
         }
         
         stage('Docker Run Project Image') {
             steps {        	
-                bat 'docker run -d --name jspDiary-container --network my-network -p 8080:8080 java-jsp-diary'
+                bat 'docker run -d --name jspDiary-container --network my-network -p 8080:8080 berly01/java-jsp-diary'
             }
         }
         
@@ -85,10 +85,9 @@ pipeline {
         
         stage('Push image to hub') {
             steps {
-                bat 'docker push java-jsp-diary'
+                bat 'docker push berly01/java-jsp-diary'
             }
-        }
-                
+        }         
     }
        
     post {     
