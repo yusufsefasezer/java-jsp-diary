@@ -16,32 +16,36 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 public class Helper {
+	
+    private Helper() {
+    }
 
-    public static String VIEW_FOLDER = "WEB-INF/view";
-    public static String NOT_FOUND = "notfound.jsp";
-    public static String DB_SOURCE = "jdbc:mysql://localhost:3306/jspDiary?useSSL=false&serverTimezone=UTC&user=root&password=matafurros90000";
-    private static IDatabase DATABASE = null;
+	public static final String VIEW_FOLDER  = "WEB-INF/view";
+    public static final String NOT_FOUND = "notfound.jsp";
+    public static final String DB_SOURSE = "jdbc:mysql://localhost:3306/jspDiary?useSSL=false&serverTimezone=UTC&user=root&password=" + System.getenv("Uns@123456");
+
+    private static IDatabase database = null;
 
     public static void view(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String viewFile = getViewFile(request);
         request
-                .getRequestDispatcher(Helper.VIEW_FOLDER + File.separator + viewFile)
+                .getRequestDispatcher(Helper.VIEW_FOLDER  + File.separator + viewFile)
                 .forward(request, response);
     }
 
     private static String getViewFile(HttpServletRequest request) {
         Object viewFileAttribute = request.getAttribute("viewFile");
         return (viewFileAttribute == null)
-                ? Helper.NOT_FOUND
+                ? Helper.NOT_FOUND 
                 : viewFileAttribute.toString();
     }
 
     private static IDatabase getMySQLDatabase() {
-        if (Helper.DATABASE == null) {
-            Helper.DATABASE = new MySQL(Helper.DB_SOURCE);
+        if (Helper.database == null) {
+            Helper.database = new MySQL(Helper.DB_SOURSE);
         }
-        return Helper.DATABASE;
+        return Helper.database;
     }
 
     public static UserRepository userRepository() {

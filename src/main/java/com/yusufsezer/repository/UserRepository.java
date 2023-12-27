@@ -11,6 +11,12 @@ import java.util.List;
 public class UserRepository implements IRepository<User, Integer> {
 
     private final IDatabase database;
+    String password = "password";
+    String userID ="user_id";
+    String firstName ="first_name";
+    String lastName ="last_name";
+    String email ="email";
+
 
     // Constantes para los nombres de las columnas:
     private static final String COLUMN_USER_ID = "user_id";
@@ -31,11 +37,6 @@ public class UserRepository implements IRepository<User, Integer> {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 user = new User();
-                user.setId(resultSet.getInt(COLUMN_USER_ID));
-                user.setFirstName(resultSet.getString(COLUMN_FIRST_NAME));
-                user.setLastName(resultSet.getString(COLUMN_LAST_NAME));
-                user.setEmail(resultSet.getString(COLUMN_EMAIL));
-                user.setPassword(resultSet.getString(COLUMN_PASSWORD));
             }
         } catch (Exception e) {
             return user;
@@ -51,11 +52,6 @@ public class UserRepository implements IRepository<User, Integer> {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 User user = new User();
-                user.setId(resultSet.getInt(COLUMN_USER_ID));
-                user.setFirstName(resultSet.getString(COLUMN_FIRST_NAME));
-                user.setLastName(resultSet.getString(COLUMN_LAST_NAME));
-                user.setEmail(resultSet.getString(COLUMN_EMAIL));
-                user.setPassword(resultSet.getString(COLUMN_PASSWORD));
                 list.add(user);
             }
         } catch (Exception ex) {
@@ -120,11 +116,6 @@ public class UserRepository implements IRepository<User, Integer> {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 user = new User();
-                user.setId(resultSet.getInt(COLUMN_USER_ID));
-                user.setFirstName(resultSet.getString(COLUMN_FIRST_NAME));
-                user.setLastName(resultSet.getString(COLUMN_LAST_NAME));
-                user.setEmail(resultSet.getString(COLUMN_EMAIL));
-                user.setPassword(resultSet.getString(COLUMN_PASSWORD));
             }
         } catch (Exception e) {
             return user;

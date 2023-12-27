@@ -11,6 +11,11 @@ import java.util.List;
 public class DiaryRepository implements IRepository<Diary, Integer> {
 
     private final IDatabase database;
+    String visibility = "visibility";
+    String diaryId = "diary_id";
+    String userID ="user_id";
+    String dateOfDiary ="date_of_diary";
+    String contenet ="content";
 
     public DiaryRepository(IDatabase database) {
         this.database = database;
@@ -24,12 +29,13 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
         try {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
+            	
                 diary = new Diary();
-                diary.setId(resultSet.getInt("diary_id"));
-                diary.setUserId(resultSet.getInt("user_id"));
-                diary.setDateOfDiary(resultSet.getDate("date_of_diary"));
-                diary.setContent(resultSet.getString("content"));
-                diary.setVisibility(resultSet.getBoolean("visibility"));
+                diary.setId(resultSet.getInt(diaryId));
+                diary.setUserId(resultSet.getInt(userID));
+                diary.setDateOfDiary(resultSet.getDate(dateOfDiary));
+                diary.setContent(resultSet.getString(contenet));
+                diary.setVisibility(resultSet.getBoolean(visibility));
             }
         } catch (Exception e) {
             return diary;
@@ -47,11 +53,11 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 Diary diary = new Diary();
-                diary.setId(resultSet.getInt("diary_id"));
-                diary.setUserId(resultSet.getInt("user_id"));
-                diary.setDateOfDiary(resultSet.getDate("date_of_diary"));
-                diary.setContent(resultSet.getString("content"));
-                diary.setVisibility(resultSet.getBoolean("visibility"));
+                diary.setId(resultSet.getInt(diaryId));
+                diary.setUserId(resultSet.getInt(userID));
+                diary.setDateOfDiary(resultSet.getDate(dateOfDiary));
+                diary.setContent(resultSet.getString(contenet));
+                diary.setVisibility(resultSet.getBoolean(visibility));
                 list.add(diary);
             }
         } catch (Exception ex) {
@@ -70,11 +76,11 @@ public class DiaryRepository implements IRepository<Diary, Integer> {
             ResultSet resultSet = database.executeQuery(query);
             while (resultSet.next()) {
                 Diary diary = new Diary();
-                diary.setId(resultSet.getInt("diary_id"));
-                diary.setUserId(resultSet.getInt("user_id"));
-                diary.setDateOfDiary(resultSet.getDate("date_of_diary"));
-                diary.setContent(resultSet.getString("content"));
-                diary.setVisibility(resultSet.getBoolean("visibility"));
+                diary.setId(resultSet.getInt(diaryId));
+                diary.setUserId(resultSet.getInt(userID));
+                diary.setDateOfDiary(resultSet.getDate(dateOfDiary));
+                diary.setContent(resultSet.getString(contenet));
+                diary.setVisibility(resultSet.getBoolean(visibility));
                 list.add(diary);
             }
         } catch (Exception ex) {
