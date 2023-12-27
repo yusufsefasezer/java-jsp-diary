@@ -13,8 +13,8 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-    	private String ViewFile="viewFile";
-    	private String register = "register.jsp";
+    	private static final String ViewFile="viewFile";
+    	private static final String register = "register.jsp";
         request.setAttribute("ViewFile", "register");
         request.setAttribute("pageTitle", "Register");
         Helper.view(request, response);
