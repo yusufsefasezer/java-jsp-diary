@@ -1,4 +1,6 @@
 
+
+=======
 # Java JSP Diary - Reporte de Sonarlint:
 
 ## Clase UserRepository.java
@@ -397,4 +399,5 @@ La refactorización en microservicios puede brindar beneficios en términos de e
 Estos microservicios se pueden diseñar y desplegar de manera independiente, cada uno con su propia lógica de negocio y base de datos. La comunicación entre ellos podría realizarse a través de API REST, mensajería, eventos, o algún otro mecanismo de comunicación.
 
 La separación en microservicios permite la escalabilidad y mantenibilidad independiente de cada componente, pero también introduce la necesidad de gestionar la comunicación entre los servicios y las posibles implicaciones en términos de latencia y complejidad en el manejo de múltiples sistemas distribuidos.
+
 
