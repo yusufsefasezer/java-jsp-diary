@@ -68,6 +68,7 @@ pipeline {
         stage('Docker Run Project Image') {
             steps {        	
                 bat 'docker run -d --name jspDiary-container --network my-network -p 8080:8080 java-jsp-diary'
+                bat 'timeout /t 12 /nobreak'
             }
         }
 	
