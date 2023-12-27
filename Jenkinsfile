@@ -69,7 +69,7 @@ pipeline {
         stage('Junit and Selenium Test') {
             steps {
                 bat 'mvn test'     
-                bat 'mnv site'                   
+                bat 'mvn site'                   
             }
         }      
               
