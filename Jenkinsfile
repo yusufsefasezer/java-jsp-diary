@@ -57,8 +57,7 @@ pipeline {
         
         stage('Junit Test') {
             steps {
-                bat 'mvn test -Dtest=DiaryRepository,UserRepository'    
-                bat 'mvn surefire-report:report -Dmaven.test.skip'                        
+                bat 'mvn test -Dtest=DiaryRepository,UserRepository'                          
             }
         } 
                
