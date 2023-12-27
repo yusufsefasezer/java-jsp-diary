@@ -84,7 +84,7 @@ pipeline {
             }
 		}
 	
-        stage('Junit, jMeter and Selenium Test') {
+        stage('jMeter') {
             steps {
                 bat 'mvn test'
             }
