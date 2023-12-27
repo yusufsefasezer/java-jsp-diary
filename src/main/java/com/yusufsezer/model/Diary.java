@@ -13,6 +13,15 @@ public class Diary implements Serializable {
     private boolean visibility;
 
     public Diary() {
+    	id = -1; 
+    }
+    
+    public Diary(final int id, final int userId,final Date dateOfDiary, final String content, final boolean visibility) {
+    	this.id = id;
+    	this.userId = userId;
+    	this.dateOfDiary = dateOfDiary;
+    	this.content = content;
+    	this.visibility = visibility;
     }
 
     public int getId() {
@@ -59,5 +68,4 @@ public class Diary implements Serializable {
     public String toString() {
         return getContent();
     }
-
 }

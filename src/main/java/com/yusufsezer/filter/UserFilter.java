@@ -20,8 +20,7 @@ public class UserFilter implements Filter {
     private static final boolean DEGUG = true;
     private FilterConfig filterConfig = null;
 
-    public UserFilter() {
-    }
+    public UserFilter() {}
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response,
@@ -69,8 +68,7 @@ public class UserFilter implements Filter {
     }
 
     @Override
-    public void destroy() {
-    }
+    public void destroy() {}
 
     @Override
     public void init(FilterConfig filterConfig) {
@@ -140,5 +138,4 @@ public class UserFilter implements Filter {
     public void log(String msg) {
         filterConfig.getServletContext().log(msg);
     }
-
 }

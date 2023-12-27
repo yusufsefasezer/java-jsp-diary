@@ -11,9 +11,18 @@ public class User implements Serializable {
     private String email;
     private String password;
 
-    public User() {
+    public User() { 
+    	id = -1;
     }
 
+    public User(final int id, final String firstName, final String lastName, final String email, final String password) {  	
+    	this.id = id;
+    	this.firstName = firstName;
+    	this.lastName = lastName;
+    	this.email = email;
+    	this.password = password;
+    }
+       
     public int getId() {
         return id;
     }
@@ -58,5 +67,4 @@ public class User implements Serializable {
     public String toString() {
         return firstName + " " + lastName;
     }
-
 }

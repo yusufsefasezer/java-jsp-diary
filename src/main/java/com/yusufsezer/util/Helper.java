@@ -6,10 +6,14 @@ import com.yusufsezer.repository.DiaryRepository;
 import com.yusufsezer.repository.MySQL;
 import com.yusufsezer.repository.UserRepository;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.lang.System.Logger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Map;
+import java.util.Properties;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -17,15 +21,13 @@ import javax.servlet.http.HttpSession;
 
 public class Helper {
 	
-    private Helper() {
-    }
-
-	public static final String VIEW_FOLDER  = "WEB-INF/view";
-    public static final String NOT_FOUND = "notfound.jsp";
-    public static final String DB_SOURSE = "jdbc:mysql://localhost:3306/jspDiary?useSSL=false&serverTimezone=UTC&user=root&password=" + System.getenv("Uns@123456");
-
-    private static IDatabase database = null;
-
+	private Helper() {}
+	
+	public static final Logger logger = System.getLogger(Helper.class.getName());
+	public static final String VIEW_FOLDER = "WEB-INF/view";
+	public static final String NOT_FOUND = "notfound.jsp";
+	private static IDatabase dataBase = null;
+	
     public static void view(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String viewFile = getViewFile(request);
@@ -41,11 +43,39 @@ public class Helper {
                 : viewFileAttribute.toString();
     }
 
+	public static String getUrlDatabase() {   	
+
+    	Properties prop = new Properties();
+    	String url = null;
+    	
+    	try (InputStream input = new FileInputStream("/usr/local/tomcat/webapps/config.properties")) { 		
+    	    prop.load(input);
+    	    
+    	    final String PORT = prop.getProperty("db.port");
+    	    final String USER = prop.getProperty("db.user");
+    	    final String DATA_BASE_NAME = prop.getProperty("db.database");
+    	    final String PASSWORD = prop.getProperty("db.password");
+    	    final String COINTAINER_DB = prop.getProperty("db.containerName");
+    	    
+    	    url = String.format("jdbc:mysql://%s:%s/%s?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=%s&password=%s&useUnicode=true&characterEncoding=UTF-8"
+    	    		, COINTAINER_DB, PORT, DATA_BASE_NAME, USER, PASSWORD);  
+    	    
+    	    logger.log(System.Logger.Level.INFO, "Valid database url");
+    	    return url;
+    	            
+    	} catch (IOException e) {
+    	    e.printStackTrace();
+    	}
+    	
+    	return url; 	 	
+    }
+
     private static IDatabase getMySQLDatabase() {
-        if (Helper.database == null) {
-            Helper.database = new MySQL(Helper.DB_SOURSE);
+        if (Helper.dataBase == null) {
+            Helper.dataBase = new MySQL(Helper.getUrlDatabase());
         }
-        return Helper.database;
+
+        return Helper.dataBase;
     }
 
     public static UserRepository userRepository() {
