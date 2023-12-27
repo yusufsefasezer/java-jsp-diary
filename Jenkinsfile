@@ -13,21 +13,13 @@ pipeline {
                 git branch: 'docker', url: 'https://github.com/Berly01/java-jsp-diary.git'
             }
         }
-        
-        stage('Code Checkout') {
-            
-            steps {
-                checkout scmGit(branches: [[name: '*/docker']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/Berly01/java-jsp-diary.git']])
-            }
-        }
-        
+         
         stage('Build') {
             steps {
                 bat 'mvn package -Dmaven.test.skip'
             }
         }
         
-        /*
         stage('SonarQube') {
             steps {
                 withSonarQubeEnv('sonarQube') {
@@ -35,8 +27,7 @@ pipeline {
                 }
             }
         }
-        */
-        
+  
         stage('Build Docker Network') {
             steps {
                 bat 'docker network create my-network'
@@ -54,16 +45,7 @@ pipeline {
 				bat 'docker run -d --name mysql-container --network my-network -p 3306:3306 db-java-jsp-diary'            
             }
         }
-        
-
-		/*
-        stage('Junit Test') {
-            steps {
-                bat 'mvn test -Dtest=DiaryRepository,UserRepository'                          
-            }
-        } 
-        */
-
+         
         stage('Docker Build Project Image ') {
             steps {
                 bat 'docker build -f Dockerfile.tc -t java-jsp-diary .'
@@ -75,30 +57,45 @@ pipeline {
                 bat 'docker run -d --name jspDiary-container --network my-network -p 8080:8080 java-jsp-diary'
             }
         }
-	
-		stage('wait') {
+        
+        stage('Wait') {
 			steps {
 				script {
 					sleep time: 8, unit: 'SECONDS'
 				}
             }
 		}
-	
-        stage('jMeter') {
+        
+        stage('Junit and Selenium Test') {
             steps {
-                bat 'mvn test'
+                bat 'mvn test'                          
             }
-        }                   
+        }      
+              
+        stage('DockerHub Login') {
+            steps {
+                
+                withCredentials([usernamePassword(credentialsId: 'dockerhub', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                  bat 'echo docker login -u $USERNAME -p $PASSWORD docker.io'
+                }
+                
+            }
+        }
+        
+        stage('Push image to hub') {
+            steps {
+                bat 'docker push java-jsp-diary'
+            }
+        }
+                
     }
-    
-    post {        
-        /*
-        always {
-    	    //  
-            //bat 'docker logout'
-            //bat 'docker network rm my-network'
+       
+    post {     
+       
+        always { 
+            bat 'docker logout'
     	}
-        */
+               
         failure {
             echo 'Alguna prueba falló. Deteniendo el flujo...'
         }
