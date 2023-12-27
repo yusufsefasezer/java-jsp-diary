@@ -66,8 +66,7 @@ pipeline {
                 bat 'docker run -d --name jspDiary-container --network my-network -p 8080:8080 java-jsp-diary'
             }
         }
-
-		
+	
         stage('Junit and Selenium Test') {
             steps {
                 bat 'mvn test'
@@ -84,13 +83,13 @@ pipeline {
     }
     
     post {        
-        
+        /*
         always {
-    	    bat 'mvn surefire-report:report'    
+    	    //bat 'mvn surefire-report:report'    
             //bat 'docker logout'
             //bat 'docker network rm my-network'
     	}
-        
+        */
         failure {
             echo 'Alguna prueba falló. Deteniendo el flujo...'
         }

@@ -69,7 +69,7 @@ public class Helper {
     	}
     	*/
     	
-    	return "jdbc:mysql://mysql-container:3306/jspDiary?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&user=root&password=db-psw&useUnicode=true&characterEncoding=UTF-8"; 
+    	return "jdbc:mysql://mysql-container:3306/jspDiary?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC&user=root&password=db-psw&useUnicode=true&characterEncoding=UTF-8"; 
     }
 
     private static IDatabase getMySQLDatabase() {
