@@ -6,6 +6,10 @@ pipeline {
         maven 'maven 3.9.6'
     }
     
+    environment {
+        JAVA_OPTS = '-Djava.net.preferIPv4Stack=true'
+    }
+     
     stages {
         
         stage('Clone') {
