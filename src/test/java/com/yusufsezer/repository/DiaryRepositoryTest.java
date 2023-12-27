@@ -3,6 +3,8 @@ package com.yusufsezer.repository;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import java.time.LocalDate;
 import java.util.Date;
@@ -12,26 +14,29 @@ import com.yusufsezer.util.Helper;
 
 class DiaryRepositoryTest {
 
+	MySQL mySQL;
+	DiaryRepository existingDiaryRepository;
+	
+	@BeforeEach
+	public void setUp() throws Exception {
+		mySQL = new MySQL(Helper.getUrlDatabase());
+		existingDiaryRepository = new DiaryRepository(mySQL);
+	}
+	
 	@Test
 	void testGet() {	
-		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
-		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Integer existingDiaryId = 1;
 		assertNotNull(existingDiaryRepository.get(existingDiaryId));
 	}
 
 	@Test
 	void testGetAll() {
-		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
-		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		List<Diary> existingDiaryList = existingDiaryRepository.getAll();	
 		assertFalse(existingDiaryList.isEmpty());
 	}
 
 	@Test
 	void testGetAllByUserId() {
-		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
-		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Integer existingUserId = 1; 
 		List<Diary> existingDiaryList = existingDiaryRepository.getAllByUserId(existingUserId, true);	
 		assertFalse(existingDiaryList.isEmpty());
@@ -39,8 +44,6 @@ class DiaryRepositoryTest {
 
 	@Test
 	void testAdd() {	
-		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
-		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary newDiary = new Diary();
 		newDiary.setContent("Ingresando un diario desde pruebas junit con id de usuario");
 		newDiary.setDateOfDiary(new Date());
@@ -58,8 +61,6 @@ class DiaryRepositoryTest {
 
 	@Test
 	void testUpdate() {
-		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
-		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary copyDiary = new Diary();
 		Integer existingDiaryId = 4;	
 		copyDiary.setContent("Actualizacion del diario");
@@ -74,8 +75,6 @@ class DiaryRepositoryTest {
 	
 	@Test
 	void testRemove() {
-		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
-		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary newDiary = new Diary();	
 		newDiary.setContent("Borrando un diario desde pruebas junit");
 		newDiary.setDateOfDiary(new Date());
