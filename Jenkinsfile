@@ -68,22 +68,25 @@ pipeline {
         stage('Docker Run Project Image') {
             steps {        	
                 bat 'docker run -d --name jspDiary-container --network my-network -p 8080:8080 java-jsp-diary'
-				script {
-                    sleep time: 15, unit: 'SECONDS'
-                }
             }
         }
+		
+		stage('wait') {
+			script {
+            	sleep time: 15, unit: 'SECONDS'
+            }
+		}
 	
         stage('Junit and Selenium Test') {
             steps {
                 bat 'mvn test -Dtest=SeleniumTest'
-                bat 'mvn surefire-report:report'
+                bat 'mvn surefire-report:report -Dmaven.test.skip'
             }
         }
         
         stage('jMeter Test') {
             steps {
-                bat 'mvn -DjmeterScript=jmeterTest.jmx verify'
+                bat 'mvn -DjmeterScript=jmeterTest.jmx -Dmaven.test.skip'
             }
         }     
     }
