@@ -11,7 +11,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<jmeterScript>test1.jmx</jmeterScript>
+		<jmeterScript>jmeterTest.jmx</jmeterScript>
 	</properties>
 	
     <dependencies>		
@@ -109,11 +109,10 @@
                 <configuration>
 					<generateReports>true</generateReports>
                     <testFilesIncluded>
-						<testFilesDirectory>${project.basedir}/src/test/jmeter</testFilesDirectory>
                         <jMeterTestFile>jmeterTest.jmx</jMeterTestFile>
                     </testFilesIncluded>
                 </configuration>  
-               	                           
+               	                          
                 <dependencies>
                     <dependency>
                         <groupId>org.apache.maven.plugins</groupId>
