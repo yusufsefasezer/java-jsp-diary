@@ -1,32 +1,16 @@
-# Java JSP Diary
-A simple MySQL diary application developed with Java EE JSP.
+## Solucionando errores de mantenibilidad en login.java y register.java:
 
-This project developed with Java EE Servlet, JSP, Maven, MySQL.
+![bandicam 2023-12-26 22-33-15-038](https://github.com/Berly01/java-jsp-diary/assets/104176510/18328425-5460-4ef2-8d4f-06f5104d8abd)
+![bandicam 2023-12-26 22-33-39-434](https://github.com/Berly01/java-jsp-diary/assets/104176510/2bc7c3c8-6bff-4f7a-9f34-232cdf96c035)
 
-## [Download](https://github.com/yusufsefasezer/java-jsp-diary/archive/master.zip)
 
-## Run
+## Códigos originales(se repite la misma linea 3 veces, se recomienda usar variables):
 
-You can run this app below command with Tomcat without Tomcat installation.
+![login](https://github.com/Berly01/java-jsp-diary/assets/104176510/ea4140e0-7250-4ac3-9989-50af88faa18e)
+![register](https://github.com/Berly01/java-jsp-diary/assets/104176510/fe043bc5-6c48-4c12-882d-a8e87ceca0aa)
 
-``
-mvn tomcat7:run
-``
 
-**NOTE:** You have to make sure that Maven is installed.
+## Mejora/corrección(textos planos reemplazados por nuevas variables/constantes):
 
-## Screenshot
-
-- [Register](screenshot/register.png)
-- [Login](screenshot/login.png)
-- [Add](screenshot/add.png)
-- [Diaries](screenshot/diaries.png)
-- [Edit](screenshot/edit.png)
-- [Detail](screenshot/detail.png)
-- [Profile](screenshot/profile.png)
-- [Home](screenshot/home.png)
-
-# License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details
-
-Created by [Yusuf SEZER](http://www.yusufsezer.com)
+![updated_login](https://github.com/Berly01/java-jsp-diary/assets/104176510/a4f5c8c7-6718-409a-85c6-81c8a67bbf72)
+![updated_register](https://github.com/Berly01/java-jsp-diary/assets/104176510/eb624c47-f16b-4bb8-9459-e3939728c246)
