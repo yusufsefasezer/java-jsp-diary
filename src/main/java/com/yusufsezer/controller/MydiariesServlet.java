@@ -10,14 +10,18 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MydiariesServlet extends HttpServlet {
 
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+	@Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+    	
         User loginUser = Helper.getLoginUser(request);
         request.setAttribute("viewFile", "mydiaries.jsp");
         request.setAttribute("pageTitle", "My diaries");
-        request.setAttribute("diaryList", Helper.diaryRepository()
-                .getAllByUserId(loginUser.getId(), true));
-        Helper.view(request, response);
+        request.setAttribute("diaryList", Helper.diaryRepository().getAllByUserId(loginUser.getId(), true));
+        
+        try {
+			Helper.view(request, response);
+		} catch (ServletException | IOException e) {
+			e.printStackTrace();
+		}
     }
 }

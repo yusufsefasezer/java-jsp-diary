@@ -3,6 +3,7 @@ package com.yusufsezer.repository;
 import com.yusufsezer.contracts.IDatabase;
 import com.yusufsezer.contracts.IRepository;
 import com.yusufsezer.model.User;
+
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,6 @@ public class UserRepository implements IRepository<User, Integer> {
     public static final String LAST_NAME_COLUMN = "last_name";
     public static final String EMAIL_COLUMN = "email";
     public static final String PASSWORD_COLUMN = "password";
-    
     public UserRepository(IDatabase database) {
         this.database = database;
     }
@@ -68,8 +68,7 @@ public class UserRepository implements IRepository<User, Integer> {
     @Override
     public boolean add(User user) {
         boolean result = false;
-        String query = String.format("INSERT INTO user"
-                + " VALUES(NULL, '%s', '%s', '%s', '%s')",
+        String query = String.format("INSERT INTO user VALUES(NULL, '%s', '%s', '%s', '%s')",
                 user.getFirstName(),
                 user.getLastName(),
                 user.getEmail(),
@@ -86,8 +85,7 @@ public class UserRepository implements IRepository<User, Integer> {
     @Override
     public User update(Integer index, User user) {
     	
-        User updatedUser = get(index);
-        
+        User updatedUser = get(index);      
         String query = String.format("UPDATE user SET %s = '%s', %s = '%s', %s = '%s', %s = '%s' WHERE %s = %d",
                 FIRST_NAME_COLUMN,
                 user.getFirstName(),
@@ -99,7 +97,6 @@ public class UserRepository implements IRepository<User, Integer> {
                 user.getPassword(),
                 USER_ID_COLUMN,
                 index);
-
         try {
             boolean result = (boolean) database.executeSQL(query);
             updatedUser = result ? updatedUser : user;

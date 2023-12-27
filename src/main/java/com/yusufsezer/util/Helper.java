@@ -32,14 +32,14 @@ public class Helper {
             throws ServletException, IOException {
         String viewFile = getViewFile(request);
         request
-                .getRequestDispatcher(Helper.VIEW_FOLDER + File.separator + viewFile)
+                .getRequestDispatcher(Helper.VIEW_FOLDER  + File.separator + viewFile)
                 .forward(request, response);
     }
 
     private static String getViewFile(HttpServletRequest request) {
         Object viewFileAttribute = request.getAttribute("viewFile");
         return (viewFileAttribute == null)
-                ? Helper.NOT_FOUND
+                ? Helper.NOT_FOUND 
                 : viewFileAttribute.toString();
     }
 

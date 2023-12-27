@@ -9,11 +9,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class RegisterServlet extends HttpServlet {
-
+	
+	private static final String VIEW_FILE = "viewFile";
+	private static final String REGISTER = "register.jsp";
+	
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("viewFile", "register.jsp");
+
+        request.setAttribute(VIEW_FILE, REGISTER);
         request.setAttribute("pageTitle", "Register");
         Helper.view(request, response);
     }
@@ -27,7 +31,7 @@ public class RegisterServlet extends HttpServlet {
                 .checkParameters(parameters, request.getParameterMap());
 
         if (!checkResult) {
-            request.setAttribute("viewFile", "register.jsp");
+            request.setAttribute(VIEW_FILE, REGISTER);
             request.setAttribute("message", "Please fill all field");
             Helper.view(request, response);
         } else {
@@ -48,11 +52,10 @@ public class RegisterServlet extends HttpServlet {
                 response.sendRedirect("login");
             } else {
                 request.setAttribute("message", "Something went wrong.");
-                request.setAttribute("viewFile", "register.jsp");
+                request.setAttribute(VIEW_FILE, REGISTER);
                 request.setAttribute("pageTitle", "Register");
                 Helper.view(request, response);
             }
         }
-
     }
 }

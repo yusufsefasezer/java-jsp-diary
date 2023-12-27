@@ -11,12 +11,13 @@ import java.util.List;
 public class DiaryRepository implements IRepository<Diary, Integer> {
 
     private final IDatabase database;
+
     public static final String DIARY_ID_COLUMN = "diary_id";
     public static final String USER_ID_COLUMN = "user_id";
     public static final String DATE_OF_DIARY_COLUMN = "date_of_diary";
     public static final String CONTENT_COLUMN = "content";
     public static final String VISIBILITY_COLUMN = "visibility";
-    
+   
     public DiaryRepository(IDatabase database) {
         this.database = database;
     }

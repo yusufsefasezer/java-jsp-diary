@@ -11,10 +11,14 @@ import javax.servlet.http.HttpSession;
 
 public class LoginServlet extends HttpServlet {
 
+	private static final String VIEW_FILE="viewFile";
+	private static final String LOGIN = "login.jsp"; 	
+	
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("viewFile", "login.jsp");
+    	
+        request.setAttribute(VIEW_FILE, LOGIN);
         request.setAttribute("pageTitle", "Login");
         Helper.view(request, response);
     }
@@ -28,7 +32,7 @@ public class LoginServlet extends HttpServlet {
                 .checkParameters(parameters, request.getParameterMap());
 
         if (!checkResult) {
-            request.setAttribute("viewFile", "login.jsp");
+            request.setAttribute(VIEW_FILE, LOGIN);
             request.setAttribute("message", "Please fill all field");
             Helper.view(request, response);
         } else {
@@ -44,10 +48,11 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("mydiaries");
             } else {
                 request.setAttribute("message", "No user found.");
-                request.setAttribute("viewFile", "login.jsp");
+                request.setAttribute(VIEW_FILE, LOGIN);
                 request.setAttribute("pageTitle", "Login");
                 Helper.view(request, response);
             }
         }
     }
 }
+
