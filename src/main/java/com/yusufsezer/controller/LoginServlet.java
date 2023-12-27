@@ -14,7 +14,9 @@ public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("viewFile", "login.jsp");
+    	private String ViewFile="viewFile";
+    	private String login = "login.jsp";
+        request.setAttribute("ViewFile", "login");
         request.setAttribute("pageTitle", "Login");
         Helper.view(request, response);
     }
@@ -28,7 +30,7 @@ public class LoginServlet extends HttpServlet {
                 .checkParameters(parameters, request.getParameterMap());
 
         if (!checkResult) {
-            request.setAttribute("viewFile", "login.jsp");
+            request.setAttribute("ViewFile", "login");
             request.setAttribute("message", "Please fill all field");
             Helper.view(request, response);
         } else {
@@ -44,7 +46,7 @@ public class LoginServlet extends HttpServlet {
                 response.sendRedirect("mydiaries");
             } else {
                 request.setAttribute("message", "No user found.");
-                request.setAttribute("viewFile", "login.jsp");
+                request.setAttribute("ViewFile", "login");
                 request.setAttribute("pageTitle", "Login");
                 Helper.view(request, response);
             }

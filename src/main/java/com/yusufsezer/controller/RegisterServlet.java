@@ -13,7 +13,9 @@ public class RegisterServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setAttribute("viewFile", "register.jsp");
+    	private String ViewFile="viewFile";
+    	private String register = "register.jsp";
+        request.setAttribute("ViewFile", "register");
         request.setAttribute("pageTitle", "Register");
         Helper.view(request, response);
     }
@@ -27,7 +29,7 @@ public class RegisterServlet extends HttpServlet {
                 .checkParameters(parameters, request.getParameterMap());
 
         if (!checkResult) {
-            request.setAttribute("viewFile", "register.jsp");
+            request.setAttribute("ViewFile", "register");
             request.setAttribute("message", "Please fill all field");
             Helper.view(request, response);
         } else {
@@ -48,7 +50,7 @@ public class RegisterServlet extends HttpServlet {
                 response.sendRedirect("login");
             } else {
                 request.setAttribute("message", "Something went wrong.");
-                request.setAttribute("viewFile", "register.jsp");
+                request.setAttribute("ViewFile", "register");
                 request.setAttribute("pageTitle", "Register");
                 Helper.view(request, response);
             }
