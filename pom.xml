@@ -108,7 +108,7 @@
 			    </executions>	
                 <configuration>					
 					<generateReports>true</generateReports>
-					<testFilesDirectory>${project.basedir}/src/test/jmeter</testFilesDirectory>
+					<testFilesDirectory>/usr/local/tomcat/webapps/</testFilesDirectory>
                     <testFilesIncluded>
                         <jMeterTestFile>jmeterTest.jmx</jMeterTestFile>
                     </testFilesIncluded>
