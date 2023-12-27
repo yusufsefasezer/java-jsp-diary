@@ -10,7 +10,7 @@ pipeline {
         
         stage('Clone') {
             steps {
-                git branch: 'master', url: 'https://github.com/Berly01/java-jsp-diary.git'
+                git branch: 'docker', url: 'https://github.com/Berly01/java-jsp-diary.git'
             }
         }
          
