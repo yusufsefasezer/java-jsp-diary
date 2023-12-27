@@ -13,14 +13,14 @@ class HelperTest {
 	@Test
 	void positiveTestUserRepository() {	
 		UserRepository userRepository = Helper.userRepository();
-		User existingUser = userRepository.get(4);
+		User existingUser = userRepository.get(1);
 		assertNotNull(existingUser);
 	}
 	
 	@Test
 	void positiveTestDiaryRepository() {	
 		DiaryRepository diaryRepository = Helper.diaryRepository();	
-		Diary existingRepository = diaryRepository.get(4);
+		Diary existingRepository = diaryRepository.get(1);
 		assertNotNull(existingRepository);	
 	}
 	

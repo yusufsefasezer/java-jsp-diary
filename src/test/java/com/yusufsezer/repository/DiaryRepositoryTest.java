@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
-import java.io.FileNotFoundException;
 import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +13,7 @@ import com.yusufsezer.util.Helper;
 class DiaryRepositoryTest {
 
 	@Test
-	void testGet() throws FileNotFoundException{	
+	void testGet() {	
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Integer existingDiaryId = 1;
@@ -22,7 +21,7 @@ class DiaryRepositoryTest {
 	}
 
 	@Test
-	void testGetAll() throws FileNotFoundException{
+	void testGetAll() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		List<Diary> existingDiaryList = existingDiaryRepository.getAll();	
@@ -30,7 +29,7 @@ class DiaryRepositoryTest {
 	}
 
 	@Test
-	void testGetAllByUserId() throws FileNotFoundException{
+	void testGetAllByUserId() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Integer existingUserId = 1; 
@@ -39,7 +38,7 @@ class DiaryRepositoryTest {
 	}
 
 	@Test
-	void testAdd() throws FileNotFoundException{	
+	void testAdd() {	
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary newDiary = new Diary();
@@ -58,7 +57,7 @@ class DiaryRepositoryTest {
 	}
 
 	@Test
-	void testUpdate() throws FileNotFoundException {
+	void testUpdate() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary copyDiary = new Diary();
@@ -74,7 +73,7 @@ class DiaryRepositoryTest {
 	}
 	
 	@Test
-	void testRemove() throws FileNotFoundException{
+	void testRemove() {
 		MySQL mySQL = new MySQL(Helper.getUrlDatabase());
 		DiaryRepository existingDiaryRepository = new DiaryRepository(mySQL);
 		Diary newDiary = new Diary();	

@@ -74,19 +74,19 @@ pipeline {
             }
         }
         
-        /*
         stage('jMeter Test') {
             steps {
                 bat 'mvn -DjmeterScript=jmeterTest.jmx verify'
             }
-        } 
-        */  
+        }     
     }
     
     post {        
         
         always {
-    	    bat 'mvn surefire-report:report'
+    	    //bat 'mvn surefire-report:report'
+    	    bat 'mvn site'
+    	    
             //bat 'docker logout'
             //bat 'docker network rm my-network'
     	}
