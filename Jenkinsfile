@@ -68,8 +68,7 @@ pipeline {
         
         stage('Junit and Selenium Test') {
             steps {
-                bat 'mvn test'             
-                bat 'mvn surefire-report:report -Dmaven.test.skip'             
+                bat 'mvn test'                        
             }
         }      
               
