@@ -1,4 +1,8 @@
 
+## Demostracion del pipeline:
+https://drive.google.com/file/d/1RNFcoKqlyDMJu9E7WXOmUvKuAIoeBYre/view?usp=sharing
+
+
 ## Solucionando errores de mantenibilidad en LoginServlet.java y RegisterServlet.java:
 
 ![bandicam 2023-12-26 22-33-15-038](https://github.com/Berly01/java-jsp-diary/assets/104176510/18328425-5460-4ef2-8d4f-06f5104d8abd)
