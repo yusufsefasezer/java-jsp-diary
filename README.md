@@ -1,3 +1,10 @@
+## Integrantes:
+- Cáceres Cuba, Jayan Michael
+- Diaz Castro, Berly Joel
+- Montoya Choque, Leonardo
+- Solis Zamata, Axel Jhuan
+- Uscca Giraldo, Jhonatan Bilbao
+- Zhong Callasi, Linghai Joaquin
 
 ## Demostracion del pipeline:
 https://drive.google.com/file/d/1RNFcoKqlyDMJu9E7WXOmUvKuAIoeBYre/view?usp=sharing
