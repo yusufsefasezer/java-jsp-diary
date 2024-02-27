@@ -13,8 +13,7 @@ import java.io.IOException;
 public class DeleteServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int diaryId = Integer.parseInt(request.getParameter("diary_id"));
         Diary foundDiary = Helper.diaryRepository().get(diaryId);

@@ -13,8 +13,7 @@ import java.io.IOException;
 public class ProfileServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int userId = Integer.parseInt(request.getParameter("user_id"));
         User foundUser = Helper.userRepository().get(userId);

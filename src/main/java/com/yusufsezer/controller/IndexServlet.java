@@ -12,8 +12,7 @@ import java.io.IOException;
 public class IndexServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("viewFile", "index.jsp");
         request.setAttribute("pageTitle", "Just Another Java JSP App...");
         request.setAttribute("diaryList", Helper.diaryRepository().getAll());

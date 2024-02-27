@@ -13,8 +13,7 @@ import java.io.IOException;
 public class MydiariesServlet extends HttpServlet {
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User loginUser = Helper.getLoginUser(request);
         request.setAttribute("viewFile", "mydiaries.jsp");
         request.setAttribute("pageTitle", "My diaries");
