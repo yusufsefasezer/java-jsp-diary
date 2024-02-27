@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
-    <filter>
-        <filter-name>UserFilter</filter-name>
-        <filter-class>com.yusufsezer.filter.UserFilter</filter-class>
-    </filter>
-    <filter-mapping>
-        <filter-name>UserFilter</filter-name>
-        <url-pattern>/add</url-pattern>
-        <url-pattern>/logout</url-pattern>
-        <url-pattern>/mydiaries</url-pattern>
-        <url-pattern>/delete</url-pattern>
-        <url-pattern>/edit</url-pattern>
-    </filter-mapping>
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>
