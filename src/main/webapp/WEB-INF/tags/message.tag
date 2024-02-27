@@ -1,6 +1,6 @@
 <%@tag description="message" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 
-<% Object message = request.getAttribute("message");
-    if (message != null) { %>
-<div class="card-panel red white-text">${message}</div>
-<% }%>
+<c:if test="${not empty message}">
+    <div class="card-panel red white-text"><c:out value="${message}" /></div>
+</c:if>
