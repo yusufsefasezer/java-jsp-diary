@@ -39,13 +39,14 @@ public class UserFilter implements Filter {
         Throwable problem = null;
         try {
 
-            HttpServletRequest httpRequest = (HttpServletRequest) request;
-            httpRequest.setCharacterEncoding("UTF-8");
+            HttpServletRequest httpServletRequest = (HttpServletRequest) request;
+            HttpServletResponse httpServletResponse = (HttpServletResponse) response;
+            httpServletRequest.setCharacterEncoding("UTF-8");
 
-            User loginUser = Helper.getLoginUser(httpRequest);
+            User loginUser = Helper.getLoginUser(httpServletRequest);
             if (loginUser == null) {
-                System.out.println("");
-                ((HttpServletResponse) response).sendRedirect("login");
+                httpServletResponse.sendRedirect("login");
+                return;
             }
 
             chain.doFilter(request, response);
@@ -54,11 +55,11 @@ public class UserFilter implements Filter {
         }
 
         if (problem != null) {
-            if (problem instanceof ServletException) {
-                throw (ServletException) problem;
+            if (problem instanceof ServletException servletException) {
+                throw servletException;
             }
-            if (problem instanceof IOException) {
-                throw (IOException) problem;
+            if (problem instanceof IOException iOException) {
+                throw iOException;
             }
             sendProcessingError(problem, response);
         }
