@@ -1,13 +1,9 @@
-<%@tag import="com.yusufsezer.model.User"%>
-<%@tag import="java.util.List"%>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
 <%@tag description="userList" pageEncoding="UTF-8"%>
 
-<% List<User> userList = (List) request.getAttribute("userList"); %>
-
 <ul class="collection with-header">
-    <li class="collection-header">
-        <h3>User list</h3></li>
-        <% for (User user : userList) {%>
-    <a href="profile?user_id=<%=user.getId()%>" class="collection-item"><%=user.toString()%></a>
-    <%}%>
+    <li class="collection-header"><h3>User list</h3></li>
+        <c:forEach items="${userList}" var="user">
+        <a href="profile?user_id=${user.id}" class="collection-item">${user}</a>
+    </c:forEach>
 </ul>
