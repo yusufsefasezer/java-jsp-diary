@@ -22,6 +22,22 @@ Once compiled, You can install the WAR in Tomcat.
 
 **NOTE:** Tomcat version 10+ is required.
 
+## Docker
+
+**Docker must be installed.**
+
+Build the Docker image with the tag "java-jsp-diary"
+
+```
+docker build -t java-jsp-diary .
+```
+
+```
+docker run -p 80:8080 java-jsp-diary
+```
+
+You can access the application using `localhost:80` in your web browser.
+
 ## Screenshot
 
 - [Register](screenshot/register.png)
