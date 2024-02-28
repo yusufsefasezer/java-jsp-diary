@@ -1,10 +1,26 @@
 # Java JSP Diary
 
-A simple MySQL diary application developed with Java EE JSP.
+A simple MySQL diary application developed with Java/Jakarta EE JSP.
 
-This project developed with Java EE Servlet, JSP, Maven, MySQL.
+This project developed with Jakarta EE Servlet, JSP, Maven, MySQL.
 
 ## [Download](https://github.com/yusufsefasezer/java-jsp-diary/archive/master.zip)
+
+## How to run
+
+### Maven
+
+Maven must be installed to compile this application.
+
+You can use the following commands to generate a WAR file.
+
+```
+mvn package
+```
+
+Once compiled, You can install the WAR in Tomcat.
+
+**NOTE:** Tomcat version 10+ is required.
 
 ## Screenshot
 
