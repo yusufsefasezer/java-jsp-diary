@@ -23,6 +23,11 @@
         <url-pattern>/js/*</url-pattern>
     </servlet-mapping>
 
+    <!--Role definition-->
+    <security-role>
+        <role-name>USER</role-name>
+    </security-role>
+
     <!--Security definition-->
     <security-constraint>
         <display-name>User Page</display-name>
