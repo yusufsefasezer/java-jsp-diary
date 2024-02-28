@@ -1,2 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Context path="/java-jsp-diary"/>
+<Context path="/java-jsp-diary">
+    <Resource name="jdbc/MyDB"
+              global="jdbc/MyDB"
+              auth="Container"
+              type="javax.sql.DataSource"
+              driverClassName="com.mysql.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/jspDiary"
+              username="root"
+              password="root"
+              maxActive="100"
+              maxIdle="20"
+              minIdle="5"
+              maxWait="10000" />
+
+    <Realm className="org.apache.catalina.realm.DataSourceRealm"
+           dataSourceName="jdbc/MyDB"
+           localDataSource="true"
+           userTable="user"
+           userNameCol="user_name"
+           userCredCol="password"
+           userRoleTable="user_roles"
+           roleNameCol="role_name" />
+</Context>

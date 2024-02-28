@@ -11,7 +11,7 @@
 
         <div class="section no-pad-bot">
             <div class="container">
-                <h1 class="header center">${pageTitle}</h1>
+                <h1 class="header center">${ pageTitle }</h1>
             </div>
         </div>
 

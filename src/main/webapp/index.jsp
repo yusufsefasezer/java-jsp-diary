@@ -1,5 +1,17 @@
 <%@page pageEncoding="UTF-8"%>
 <%@taglib tagdir="/WEB-INF/tags/" prefix="t" %>
+<%@taglib prefix="c" uri="jakarta.tags.core" %>
+<%@taglib prefix="sql" uri="jakarta.tags.sql" %>
+<c:set scope="request" var="pageTitle" value="Just Another Java JSP App..."  />
+
+<c:catch var="error">
+    <sql:query dataSource="jdbc/MyDB" var="rs" scope="request">
+        SELECT * FROM diary
+        INNER JOIN user
+        WHERE visibility = 1
+        ORDER BY diary_id DESC
+    </sql:query>
+</c:catch>
 
 <t:layout>
     <div class="row">
