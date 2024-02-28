@@ -5,14 +5,19 @@
 
 <sql:query dataSource="jdbc/MyDB" var="rs" scope="request">
     SELECT * FROM diary
+    INNER JOIN user
     WHERE visibility = 1 AND
-    user_id = ?
+    user.user_id = ?
     <sql:param value="${param.user_id}" />
 </sql:query>
 
 <c:if test="${ error ne null or empty rs.rows }">
     <% response.sendRedirect("index.jsp"); %>
 </c:if>
+
+<c:set var="firstName" value="${ rs.rows[0].first_name }" />
+<c:set var="lastName" value="${ rs.rows[0].last_name }" />
+<c:set scope="request" var="pageTitle" value="${ firstName } ${ lastName }" />
 
 <t:layout>
     <div class="section">

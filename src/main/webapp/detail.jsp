@@ -6,7 +6,10 @@
 
 <c:catch var="error">
     <sql:query dataSource="jdbc/MyDB" var="rs">
-        SELECT * FROM diary WHERE diary_id = ?
+        SELECT * FROM diary
+        WHERE
+        visibility = 1 AND
+        diary_id = ?
         <sql:param value="${param.diary_id}" />
     </sql:query>
 </c:catch>
