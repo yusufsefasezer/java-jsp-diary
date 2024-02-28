@@ -38,6 +38,18 @@ docker run -p 80:8080 java-jsp-diary
 
 You can access the application using `localhost:80` in your web browser.
 
+## Docker Compose
+
+**Docker must be installed.**
+
+You can run the following commands to run both App and MySQL.
+
+```
+docker compose up
+```
+
+You can access the application using `localhost:80` in your web browser.
+
 ## Screenshot
 
 - [Register](screenshot/register.png)

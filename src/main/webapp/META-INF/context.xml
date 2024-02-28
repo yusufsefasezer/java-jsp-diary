@@ -4,7 +4,7 @@
               auth="Container"
               type="javax.sql.DataSource"
               driverClassName="com.mysql.cj.jdbc.Driver"
-              url="jdbc:mysql://localhost:3306/jspDiary"
+              url="jdbc:mysql://mysql/jspDiary?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;"
               username="root"
               password="root"
               maxIdle="20"
